@@ -1,0 +1,2657 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RAHNEXT | راهنکس — مشاوره تخصصی آنلاین و برنامه‌ریزی تحصیلی</title>
+<meta name="description" content="مرجعی نوگرا در ارائه خدمات مشاوره تخصصی آنلاین، برنامه‌ریزی تحصیلی اختصاصی و همراهی مسیر تحصیل — همیشه یه راه دیگه‌ای هم هست!">
+<meta property="og:title" content="RAHNEXT | راهنکس — مشاوره تخصصی آنلاین و برنامه‌ریزی تحصیلی">
+<meta property="og:description" content="مرجعی نوگرا در ارائه خدمات مشاوره تخصصی آنلاین، برنامه‌ریزی تحصیلی اختصاصی و همراهی مسیر تحصیل — همیشه یه راه دیگه‌ای هم هست!">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@100..900&family=Vazirmatn:wght@300..800&display=swap">
+<style>
+:root{
+  --ink:#ffffff;
+  --sub:#a2a9b8;
+  --nav:#fbfdff;
+  --foot:#f4f8fd;
+  --hair:rgba(196,214,232,.72);
+  --chev:rgba(214,232,250,.90);
+  --navdim:#e8ecf0;
+  --feat:#e2ebf5;
+  --veil:6,10,18;
+
+  --navy-deep:#071426;
+  --navy:#0B1930;
+  --navy-light:#152A45;
+  --gold:#C8A45D;
+  --gold-light:#E4C982;
+  --gold-dark:#94733C;
+  --glass-white:#F6F7FA;
+  --text-gray:#B7C1D0;
+
+  --cover:max(calc(100vw / 1536), calc(100vh / 1024));
+  --fit:calc(100vh / 910);
+  --u:min(var(--cover), var(--fit));
+  --blur:calc(var(--u)*26);
+  --glow:calc(var(--u)*34);
+  --hairline:max(1px, calc(var(--u)*1.6));
+}
+@supports (height:100dvh){
+  :root{
+    --cover:max(calc(100vw / 1536), calc(100dvh / 1024));
+    --fit:calc(100dvh / 910);
+  }
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#02060f;overflow:hidden}
+body{
+  font-family:'Vazirmatn','Sora',system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:geometricPrecision;
+}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+li{list-style:none}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,label:focus-visible{
+  outline:2px solid #9fe0ff;
+  outline-offset:3px;
+  border-radius:6px;
+}
+
+/* =========================================================
+   BACKGROUND ART & VEIL (NEURAL)
+   ========================================================= */
+.art{
+  position:fixed;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:50% 50%;z-index:0;user-select:none;
+  -webkit-user-drag:none;pointer-events:none;background:#03060c;
+}
+.veil{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(140% 60% at 50% 40%,
+      rgba(var(--veil),.16) 0%, rgba(var(--veil),.057) 50%, rgba(var(--veil),0) 100%),
+    linear-gradient(180deg, rgba(var(--veil),0) 45%, rgba(var(--veil),.10) 100%);
+  transition:background .35s ease;
+}
+html.is-subpage .veil{
+  background:
+    radial-gradient(130% 70% at 50% 30%,
+      rgba(7,20,38,.78) 0%, rgba(7,20,38,.86) 60%, rgba(2,6,15,.92) 100%);
+}
+.bar,.hero,.foot{position:fixed;z-index:2;transition:opacity .25s ease}
+html.is-subpage .hero,
+html.is-subpage .foot{opacity:0;pointer-events:none;visibility:hidden}
+html.is-subpage .bar{opacity:0;pointer-events:none;visibility:hidden}
+
+/* =========================================================
+   COMPONENT SKIN (NEURAL)
+   ========================================================= */
+.brand svg{fill:var(--ink);display:block}
+.caret,.navarrow{fill:none;stroke:var(--nav);stroke-linecap:round;stroke-linejoin:round}
+.navarrow{stroke-linecap:square;stroke-linejoin:miter}
+.pill{border:var(--hairline) solid var(--hair);border-radius:999px;transition:border-color .2s ease,background .2s ease}
+.pill:hover{border-color:rgba(228,201,130,.75);background:rgba(255,255,255,.06)}
+.chev{fill:none;stroke:var(--chev);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.cta .arrow{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:square;stroke-linejoin:miter}
+.rule{background:linear-gradient(180deg, rgba(186,200,214,.70) 0%, rgba(206,220,232,.92) 52%, rgba(182,198,212,.68) 100%)}
+
+/* THE CTA GLASS — three stacked gradients, warm left / cool right */
+.cta{
+  position:relative;
+  border-radius:999px;
+  cursor:pointer;
+  background:
+    linear-gradient(180deg, rgba(6,12,22,0) 45%, rgba(6,12,22,.12) 78%, rgba(6,12,22,.28) 100%),
+    linear-gradient(90deg,
+      rgba(255,226,178,.17) 0%, rgba(255,236,208,.07) 22%,
+      rgba(176,206,238,.03) 55%, rgba(150,196,244,.09) 100%),
+    linear-gradient(90deg,
+      rgba(255,255,255,.24) 0%, rgba(255,255,255,.17) 12%,
+      rgba(255,255,255,.11) 26%, rgba(255,255,255,.07) 42%,
+      rgba(255,255,255,.05) 60%, rgba(255,255,255,.04) 80%,
+      rgba(255,255,255,.04) 100%);
+  -webkit-backdrop-filter:blur(var(--blur)) saturate(.45);
+  backdrop-filter:blur(var(--blur)) saturate(.45);
+  box-shadow:0 calc(var(--u)*-2) calc(var(--u)*20) rgba(255,224,176,.20),
+             0 0 var(--glow) rgba(168,204,252,.16),
+             inset 0 var(--hairline) 0 0 rgba(255,251,242,.45);
+  transition:transform .22s cubic-bezier(.16,1,.3,1),box-shadow .22s ease;
+}
+.cta:hover{
+  box-shadow:0 calc(var(--u)*-2) calc(var(--u)*26) rgba(255,224,176,.32),
+             0 0 calc(var(--glow)*1.25) rgba(168,204,252,.24),
+             inset 0 var(--hairline) 0 0 rgba(255,251,242,.65);
+}
+.cta::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;
+  padding:var(--hairline);pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(255,252,246,.95) 0%, rgba(255,252,246,.20) 45%, rgba(255,252,246,0) 78%),
+    linear-gradient(90deg,
+      rgba(255,228,182,.95) 0%, rgba(250,236,210,.70) 12%,
+      rgba(226,230,234,.03) 32%, rgba(214,226,240,.02) 62%,
+      rgba(200,228,250,.70) 90%, rgba(186,224,247,.95) 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite:exclude;
+}
+
+/* PER-ELEMENT VARIABLE WEIGHTS */
+#word{font-family:'Sora','Vazirmatn',sans-serif;font-variation-settings:'wght' 531;font-weight:531;color:var(--ink)}
+#about,#product,#solutions,#navfaq,#login{font-variation-settings:'wght' 506;font-weight:506;color:var(--nav)}
+#contact{font-variation-settings:'wght' 581;font-weight:581;color:var(--navdim)}
+#h1a,#h1b{font-variation-settings:'wght' 424;font-weight:424;color:var(--ink)}
+#sub1,#sub2{font-variation-settings:'wght' 446;font-weight:446;color:var(--sub)}
+#cta{font-variation-settings:'wght' 497;font-weight:497;color:var(--ink)}
+#f1,#f2,#f3,#f4{font-variation-settings:'wght' 534;font-weight:534;color:var(--feat)}
+#foot1,#foot2{font-variation-settings:'wght' 521;font-weight:521;color:var(--foot)}
+
+/* =========================================================
+   ENTRANCE SEQUENCE
+   ========================================================= */
+@media (prefers-reduced-motion:no-preference){
+  :root{
+    --ent-line:cubic-bezier(.16,1,.3,1);
+    --ent-soft:cubic-bezier(.25,.8,.35,1);
+    --rise:9px;
+  }
+  @keyframes en-wipe{
+    from{clip-path:inset(-.78em 0 calc(100% + .78em) 0);translate:0 var(--rise)}
+    to{clip-path:inset(-.78em 0 -.78em 0);translate:0 0}
+  }
+  @keyframes en-lift{from{opacity:0;translate:0 var(--rise)}}
+  @keyframes en-settle{from{opacity:0;translate:0 calc(var(--rise)*.7);scale:.99}}
+  @keyframes en-draw{from{scale:1 0}}
+
+  html:not(.is-entered) .brand{animation:en-lift .60s var(--ent-soft) .12s backwards}
+  html:not(.is-entered) #about{animation:en-lift .55s var(--ent-soft) .20s backwards}
+  html:not(.is-entered) #product{animation:en-lift .55s var(--ent-soft) .25s backwards}
+  html:not(.is-entered) #solutions,html:not(.is-entered) .caret{animation:en-lift .55s var(--ent-soft) .30s backwards}
+  html:not(.is-entered) #navfaq{animation:en-lift .55s var(--ent-soft) .32s backwards}
+  html:not(.is-entered) #login,html:not(.is-entered) .navarrow{animation:en-lift .55s var(--ent-soft) .35s backwards}
+  html:not(.is-entered) .pill{animation:en-settle .60s var(--ent-soft) .40s backwards}
+  html:not(.is-entered) .burger{animation:en-lift .60s var(--ent-soft) .40s backwards}
+  html:not(.is-entered) #h1a{animation:en-wipe .95s var(--ent-line) .34s backwards}
+  html:not(.is-entered) #h1b{animation:en-wipe .95s var(--ent-line) .44s backwards}
+  html:not(.is-entered) #sub1{animation:en-lift .70s var(--ent-soft) .74s backwards}
+  html:not(.is-entered) #sub2{animation:en-lift .70s var(--ent-soft) .80s backwards}
+  html:not(.is-entered) .cta{animation:en-lift .80s var(--ent-line) .94s backwards}
+  html:not(.is-entered) .hero-links{animation:en-lift .65s var(--ent-soft) 1.02s backwards}
+  html:not(.is-entered) .feats li:nth-child(1){animation:en-lift .60s var(--ent-soft) 1.08s backwards}
+  html:not(.is-entered) .feats li:nth-child(2){animation:en-lift .60s var(--ent-soft) 1.15s backwards}
+  html:not(.is-entered) .feats li:nth-child(3){animation:en-lift .60s var(--ent-soft) 1.22s backwards}
+  html:not(.is-entered) .feats li:nth-child(4){animation:en-lift .60s var(--ent-soft) 1.29s backwards}
+  html:not(.is-entered) .rule{transform-origin:top;animation:en-draw .55s var(--ent-line) 1.34s backwards}
+  html:not(.is-entered) #foot1{animation:en-lift .60s var(--ent-soft) 1.42s backwards}
+  html:not(.is-entered) #foot2{animation:en-lift .60s var(--ent-soft) 1.48s backwards}
+}
+
+/* =========================================================
+   ARCHITECTURE A — LOCKED COMPOSITION (desktop >=1200px)
+   ========================================================= */
+@media (min-width:1200px) and (min-height:560px) and (min-aspect-ratio:100/95){
+  .bar,.hero,.foot{left:50%;width:calc(var(--u)*1536);transform:translateX(-50%)}
+  .bar{
+    top:0;height:calc(var(--u)*120);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:calc(var(--u)*14) calc(var(--u)*200) 0 calc(var(--u)*221);
+  }
+  .foot{
+    bottom:0;height:calc(var(--u)*140);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:calc(var(--u)*6);padding-bottom:calc(var(--u)*24);
+  }
+  .hero{top:50%;height:calc(var(--u)*1024);transform:translate(-50%,-50%)}
+  .navtoggle,.burger,.scrim{display:none}
+  .navpanel{display:flex;align-items:center;gap:calc(var(--u)*26)}
+  .menu{display:flex;align-items:center;gap:calc(var(--u)*24)}
+  .menu a,.login{display:inline-flex;align-items:center;gap:calc(var(--u)*6);white-space:nowrap;font-size:calc(var(--u)*13.5);opacity:.92;transition:opacity .18s ease,color .18s ease}
+  .menu a:hover,.login:hover{opacity:1;color:var(--gold-light)}
+  .caret{width:calc(var(--u)*9);height:calc(var(--u)*6);stroke-width:1.25}
+  .navarrow{width:calc(var(--u)*10);height:calc(var(--u)*9);stroke-width:1.2;transform:scaleX(-1)}
+  .pill{display:inline-flex;align-items:center;justify-content:center;height:calc(var(--u)*44);padding:0 calc(var(--u)*22);white-space:nowrap;font-size:calc(var(--u)*13.5)}
+
+  .brand{display:inline-flex;align-items:center;gap:calc(var(--u)*8);direction:ltr}
+  .brand svg{width:calc(var(--u)*23);height:calc(var(--u)*17)}
+  #word{font-size:calc(var(--u)*23.4);letter-spacing:calc(var(--u)*4.2)}
+
+  .hero > *{position:absolute}
+  .title,.sub{left:0;right:0;text-align:center}
+  .title{top:calc(var(--u)*268);font-weight:inherit}
+  .title span{display:block;white-space:nowrap}
+  #h1a{font-size:calc(var(--u)*46.8);line-height:1.22}
+  #h1b{font-size:calc(var(--u)*42);line-height:1.35;margin-top:calc(var(--u)*4)}
+
+  .sub{top:calc(var(--u)*408);font-weight:inherit}
+  .sub span{display:block;white-space:nowrap}
+  #sub1{font-size:calc(var(--u)*20.6);line-height:1.5;color:var(--gold-light)}
+  #sub2{font-size:calc(var(--u)*18.5);line-height:1.6;margin-top:calc(var(--u)*2)}
+
+  .cta{
+    left:50%;transform:translateX(-50%);top:calc(var(--u)*532);
+    min-width:calc(var(--u)*279.6);height:calc(var(--u)*50);
+    padding:0 calc(var(--u)*30);
+    display:inline-flex;align-items:center;justify-content:center;gap:calc(var(--u)*12);
+    white-space:nowrap;
+  }
+  .cta:hover{transform:translateX(-50%) translateY(-1px)}
+  #cta{font-size:calc(var(--u)*20);line-height:1}
+  .cta .arrow{width:calc(var(--u)*16);height:calc(var(--u)*11);transform:scaleX(-1)}
+
+  .hero-links{
+    left:50%;transform:translateX(-50%);top:calc(var(--u)*602);
+    display:flex;align-items:center;gap:calc(var(--u)*20);
+    font-size:calc(var(--u)*13.5);color:var(--text-gray);white-space:nowrap;
+  }
+  .hero-links a{transition:color .2s ease}
+  .hero-links a:hover{color:var(--gold-light)}
+  .hero-links .sep{opacity:.38}
+
+  .feats{
+    left:50%;transform:translateX(-50%);top:calc(var(--u)*694);
+    display:flex;align-items:center;justify-content:center;gap:calc(var(--u)*38);
+    width:calc(var(--u)*1040);
+  }
+  .feats li a{
+    display:inline-flex;align-items:center;gap:calc(var(--u)*9);
+    font-size:calc(var(--u)*14.6);white-space:nowrap;
+    padding:calc(var(--u)*6) calc(var(--u)*10);border-radius:999px;
+    transition:background .2s ease,color .2s ease;
+  }
+  .feats li a:hover{background:rgba(255,255,255,.06);color:var(--gold-light)}
+  .feats .chev{width:calc(var(--u)*10);height:calc(var(--u)*18);transform:scaleX(-1)}
+
+  .rule{left:50%;transform:translateX(-50%);top:calc(var(--u)*774);width:1px;height:calc(var(--u)*57)}
+  #foot1{font-size:calc(var(--u)*16.3)}
+  #foot2{font-size:calc(var(--u)*14.5);opacity:.86}
+}
+
+/* =========================================================
+   ARCHITECTURE B — FLOW (tablet & phone)
+   ========================================================= */
+@media (max-width:1199px),(max-height:559px),(max-aspect-ratio:100/95){
+  :root{--c:min(calc(100vw / 430), calc(100vh / 860))}
+  body{
+    display:flex;flex-direction:column;height:100vh;
+    padding:calc(env(safe-area-inset-top) + calc(var(--c)*24)) calc(var(--c)*22)
+            calc(env(safe-area-inset-bottom) + calc(var(--c)*22));
+  }
+  .bar,.hero,.foot{position:static;width:100%}
+  .bar{
+    order:1;position:relative;z-index:5;display:flex;align-items:center;
+    justify-content:space-between;gap:calc(var(--c)*16);
+  }
+  .brand{display:flex;align-items:center;gap:calc(var(--c)*8);direction:ltr}
+  .brand svg{width:calc(var(--c)*22);height:auto}
+  #word{font-size:calc(var(--c)*19);letter-spacing:.06em}
+
+  /* BURGER CSS-only */
+  .navtoggle{position:absolute;top:0;left:0;width:1px;height:1px;opacity:0;margin:0;pointer-events:none}
+  .burger{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:calc(var(--c)*42);height:calc(var(--c)*30);border-radius:999px;cursor:pointer;
+    border:var(--hairline) solid var(--hair);
+    background:rgba(255,255,255,.03);
+    -webkit-backdrop-filter:blur(var(--blur)) saturate(.45);
+    backdrop-filter:blur(var(--blur)) saturate(.45);
+  }
+  .burger svg{width:calc(var(--c)*19);height:auto;fill:none;stroke:var(--nav);stroke-width:1.4;stroke-linecap:round}
+  .burger svg path{transform-box:fill-box;transform-origin:center;transition:transform .24s ease,opacity .18s ease}
+  .navtoggle:focus-visible ~ .burger{outline:2px solid #9fe0ff;outline-offset:3px}
+  .navtoggle:checked ~ .burger .b1{transform:translateY(6px) rotate(45deg)}
+  .navtoggle:checked ~ .burger .b2{opacity:0}
+  .navtoggle:checked ~ .burger .b3{transform:translateY(-6px) rotate(-45deg)}
+  .scrim{display:none;position:fixed;inset:0;z-index:-1}
+  .navtoggle:checked ~ .scrim{display:block}
+
+  .navpanel{
+    position:absolute;top:calc(100% + calc(var(--c)*12));left:0;
+    display:flex;flex-direction:column;gap:calc(var(--c)*2);
+    width:min(calc(var(--c)*268), 78vw);padding:calc(var(--c)*12);
+    border-radius:calc(var(--c)*20);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,.045) 100%),
+      linear-gradient(90deg, rgba(255,226,178,.06) 0%, rgba(150,196,244,.06) 100%),
+      linear-gradient(180deg, rgba(6,12,22,.82) 0%, rgba(6,12,22,.90) 100%);
+    -webkit-backdrop-filter:blur(var(--blur)) saturate(.45);
+    backdrop-filter:blur(var(--blur)) saturate(.45);
+    border:1px solid rgba(196,214,232,.22);
+    box-shadow:0 calc(var(--c)*14) calc(var(--c)*38) rgba(2,6,14,.65);
+    opacity:0;transform:translateY(calc(var(--c)*-8)) scale(.985);
+    transform-origin:0 0;pointer-events:none;
+    transition:opacity .2s ease,transform .2s ease;
+  }
+  .navtoggle:checked ~ .navpanel{opacity:1;transform:none;pointer-events:auto}
+  .navpanel .menu{display:flex;flex-direction:column}
+  .navpanel .menu a,.navpanel .login{
+    display:flex;align-items:center;gap:calc(var(--c)*8);
+    padding:calc(var(--c)*10) calc(var(--c)*12);border-radius:calc(var(--c)*12);
+    font-size:calc(var(--c)*15);color:var(--nav);transition:background .15s ease;
+  }
+  .navpanel .menu a:hover,.navpanel .login:hover{background:rgba(255,255,255,.07)}
+  .navpanel .caret,.navpanel .navarrow{margin-right:auto;height:auto}
+  .navpanel .caret{width:calc(var(--c)*10)}
+  .navpanel .navarrow{width:calc(var(--c)*11);transform:scaleX(-1)}
+  .navpanel .pill{
+    margin-top:calc(var(--c)*8);text-align:center;white-space:nowrap;
+    padding:calc(var(--c)*11) calc(var(--c)*16);font-size:calc(var(--c)*14.5);
+  }
+
+  .hero{order:2;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:calc(var(--c)*18)}
+  .title{font-size:calc(var(--c)*28);line-height:1.25;max-width:20ch}
+  .title span{display:block}
+  .sub{color:var(--sub);font-size:calc(var(--c)*15.5);line-height:1.48;max-width:32ch}
+  .sub span{display:block}
+  #sub1{color:var(--gold-light)}
+  .cta{position:relative;display:inline-flex;align-items:center;gap:calc(var(--c)*12);padding:calc(var(--c)*14) calc(var(--c)*26);font-size:calc(var(--c)*17)}
+  .cta .arrow{width:calc(var(--c)*16);height:calc(var(--c)*11);transform:scaleX(-1)}
+  .hero-links{display:flex;flex-wrap:wrap;justify-content:center;gap:calc(var(--c)*10) calc(var(--c)*14);font-size:calc(var(--c)*13);color:var(--text-gray)}
+  .hero-links .sep{opacity:.38}
+  .feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:calc(var(--c)*14) calc(var(--c)*12);width:100%;max-width:calc(var(--c)*400);margin-top:calc(var(--c)*4)}
+  .feats li a{display:flex;align-items:center;justify-content:center;gap:calc(var(--c)*8);font-size:calc(var(--c)*13.5);padding:calc(var(--c)*6);border-radius:999px}
+  .feats .chev{width:calc(var(--c)*9);height:calc(var(--c)*16);flex:none;transform:scaleX(-1)}
+  .rule{width:1px;height:calc(var(--c)*28);margin:calc(var(--c)*10) auto 0}
+  .foot{order:3;text-align:center;color:var(--foot);font-size:calc(var(--c)*13);line-height:1.6}
+  .foot span{display:block}
+}
+
+/* B1. PHONE CANVAS */
+@media (max-width:599px),(max-height:429px){
+  :root{--c:min(calc(100vw / 360), calc(100vh / 770), 1px);--rise:6px}
+  body{padding:calc(env(safe-area-inset-top) + calc(var(--c)*24)) calc(var(--c)*22) calc(env(safe-area-inset-bottom) + calc(var(--c)*22))}
+  .brand svg{width:calc(var(--c)*24)}
+  #word{font-size:calc(var(--c)*18.5)}
+  .burger{width:calc(var(--c)*46);height:calc(var(--c)*33);position:relative}
+  .burger::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max(44px,100%);height:max(44px,100%)}
+  .burger svg{width:calc(var(--c)*21)}
+  .navpanel{width:min(calc(var(--c)*300), 82vw);padding:calc(var(--c)*15);border-radius:calc(var(--c)*22)}
+  .navpanel .menu a,.navpanel .login{font-size:calc(var(--c)*15.5);padding:calc(var(--c)*12) calc(var(--c)*14);border-radius:calc(var(--c)*13);min-height:max(44px,calc(var(--c)*44))}
+  .navpanel .pill{font-size:calc(var(--c)*15.5);padding:calc(var(--c)*13) calc(var(--c)*18);margin-top:calc(var(--c)*9);min-height:44px}
+  .veil{
+    background:
+      radial-gradient(130% 44% at 50% 45%,
+        rgba(var(--veil),.52) 0%, rgba(var(--veil),.28) 55%, rgba(var(--veil),0) 100%),
+      linear-gradient(180deg,
+        rgba(var(--veil),.36) 0%, rgba(var(--veil),0) 20%,
+        rgba(var(--veil),0) 60%, rgba(var(--veil),.38) 100%);
+  }
+  .hero{gap:calc(var(--c)*16)}
+  .title{font-size:calc(var(--c)*25);line-height:1.3;max-width:none;text-wrap:balance}
+  .sub{font-size:calc(var(--c)*14.5);line-height:1.5;max-width:none;text-wrap:balance}
+  .cta{font-size:calc(var(--c)*16);padding:calc(var(--c)*13) calc(var(--c)*26);gap:calc(var(--c)*12);min-height:44px}
+  .cta .arrow{width:calc(var(--c)*17);height:calc(var(--c)*12)}
+  .hero-links{font-size:calc(var(--c)*12.5);gap:calc(var(--c)*8) calc(var(--c)*10)}
+  .hero-links a{min-height:36px;display:inline-flex;align-items:center}
+  .feats{grid-template-columns:repeat(2,max-content);justify-content:center;width:auto;max-width:none;gap:calc(var(--c)*10) calc(var(--c)*14);margin-top:calc(var(--c)*8)}
+  .feats li a{font-size:calc(var(--c)*12.5);gap:calc(var(--c)*8);min-height:40px}
+  .feats .chev{width:calc(var(--c)*9);height:calc(var(--c)*16)}
+  .rule{height:calc(var(--c)*24);margin:calc(var(--c)*10) auto 0}
+  .foot{font-size:calc(var(--c)*13);line-height:1.65;text-wrap:balance}
+}
+
+/* LANDSCAPE PHONES */
+@media (max-height:429px) and (min-aspect-ratio:1/1){
+  :root{--c:min(calc(100vw / 760), calc(100vh / 430))}
+  .hero{gap:calc(var(--c)*10)}
+  .title{font-size:calc(var(--c)*24);line-height:1.22;max-width:30ch}
+  .sub{font-size:calc(var(--c)*14);max-width:48ch}
+  .sub span{display:inline}
+  .cta{font-size:calc(var(--c)*15);padding:calc(var(--c)*10) calc(var(--c)*22)}
+  .feats{grid-template-columns:repeat(4,max-content);justify-content:center;max-width:none;gap:calc(var(--c)*18);margin-top:calc(var(--c)*2)}
+  .feats li a{font-size:calc(var(--c)*12.5)}
+  .rule{height:calc(var(--c)*16);margin:calc(var(--c)*6) auto 0}
+  .foot{font-size:calc(var(--c)*12)}
+}
+
+/* B2. TABLET CANVAS */
+@media (min-width:600px) and (min-height:430px) and (max-width:1199px),
+       (min-width:600px) and (min-height:430px) and (max-height:559px),
+       (min-width:600px) and (min-height:430px) and (max-aspect-ratio:100/95){
+  :root{--c:min(calc(100vw / 860), calc(100vh / 1120))}
+  body{padding:calc(env(safe-area-inset-top) + calc(var(--c)*36)) calc(var(--c)*40) calc(env(safe-area-inset-bottom) + calc(var(--c)*32))}
+  .brand svg{width:calc(var(--c)*32)}
+  #word{font-size:calc(var(--c)*28)}
+  .burger{width:calc(var(--c)*60);height:calc(var(--c)*44)}
+  .burger svg{width:calc(var(--c)*27);stroke-width:1.2}
+  .navpanel{width:min(calc(var(--c)*330), 56vw);padding:calc(var(--c)*16);border-radius:calc(var(--c)*26);gap:calc(var(--c)*4)}
+  .navpanel .menu a,.navpanel .login{font-size:calc(var(--c)*19);padding:calc(var(--c)*13) calc(var(--c)*15);border-radius:calc(var(--c)*15);gap:calc(var(--c)*10)}
+  .navpanel .caret{width:calc(var(--c)*13)}
+  .navpanel .navarrow{width:calc(var(--c)*14)}
+  .navpanel .pill{margin-top:calc(var(--c)*10);padding:calc(var(--c)*14) calc(var(--c)*20);font-size:calc(var(--c)*18)}
+  .hero{gap:calc(var(--c)*22)}
+  .title{font-size:calc(var(--c)*40);line-height:1.22;max-width:none}
+  .sub{font-size:calc(var(--c)*19.5);line-height:1.45;max-width:none}
+  .cta{gap:calc(var(--c)*14);padding:calc(var(--c)*16) calc(var(--c)*32);font-size:calc(var(--c)*20)}
+  .cta .arrow{width:calc(var(--c)*20);height:calc(var(--c)*14)}
+  .hero-links{font-size:calc(var(--c)*15.5);gap:calc(var(--c)*18)}
+  .feats{grid-template-columns:repeat(2,max-content);justify-content:center;gap:calc(var(--c)*18) calc(var(--c)*48);max-width:none;margin-top:calc(var(--c)*10)}
+  .feats li a{gap:calc(var(--c)*10);font-size:calc(var(--c)*16)}
+  .feats .chev{width:calc(var(--c)*12);height:calc(var(--c)*21)}
+  .rule{height:calc(var(--c)*42);margin:calc(var(--c)*22) auto 0}
+  .foot{font-size:calc(var(--c)*15.5)}
+  @media (min-aspect-ratio:1/1){
+    :root{--c:min(calc(100vw / 1040), calc(100vh / 780))}
+    .feats{grid-template-columns:repeat(4,max-content);gap:calc(var(--c)*32)}
+  }
+}
+
+/* DYNAMIC VIEWPORT OVERRIDE */
+@supports (height:100dvh){
+  @media (max-width:1199px),(max-height:559px),(max-aspect-ratio:100/95){
+    :root{--c:min(calc(100vw / 430), calc(100dvh / 860))}
+    body{height:100dvh}
+    @media (max-width:599px),(max-height:429px){
+      :root{--c:min(calc(100vw / 360), calc(100dvh / 770), 1px)}
+    }
+    @media (max-height:429px) and (min-aspect-ratio:1/1){
+      :root{--c:min(calc(100vw / 760), calc(100dvh / 430))}
+    }
+    @media (min-width:600px) and (min-height:430px){
+      :root{--c:min(calc(100vw / 860), calc(100dvh / 1120))}
+      @media (min-aspect-ratio:1/1){
+        :root{--c:min(calc(100vw / 1040), calc(100dvh / 780))}
+      }
+    }
+  }
+}
+
+/* =========================================================
+   SUB-PAGE GLASS WORKSPACE (OVERVIEW, SERVICES, PRICING, FORM, INVOICE, FAQ)
+   ========================================================= */
+.subshell{
+  position:fixed;inset:0;z-index:10;
+  overflow-y:auto;overflow-x:hidden;
+  scroll-behavior:smooth;
+  opacity:0;pointer-events:none;visibility:hidden;
+  transform:translateY(10px);
+  transition:opacity .28s ease,transform .28s cubic-bezier(.16,1,.3,1),visibility .28s ease;
+}
+html.is-subpage .subshell{
+  opacity:1;pointer-events:auto;visibility:visible;transform:none;
+}
+
+.sub-header{
+  position:sticky;top:0;z-index:30;
+  background:linear-gradient(180deg, rgba(7,20,38,.88) 0%, rgba(11,25,48,.76) 100%);
+  -webkit-backdrop-filter:blur(22px) saturate(.7);
+  backdrop-filter:blur(22px) saturate(.7);
+  border-bottom:1px solid rgba(196,214,232,.16);
+}
+.sub-header-in{
+  max-width:1240px;margin:0 auto;
+  padding:12px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.sub-brand{display:inline-flex;align-items:center;gap:8px;direction:ltr;flex-shrink:0}
+.sub-brand svg{width:22px;height:16px;fill:var(--ink)}
+.sub-brand span{font-family:'Sora',sans-serif;font-weight:600;letter-spacing:.14em;font-size:17px}
+.sub-nav{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center}
+.sub-nav a,.sub-nav button{
+  background:none;border:none;cursor:pointer;padding:6px 4px;
+  font-size:13.5px;color:var(--text-gray);white-space:nowrap;
+  transition:color .18s ease;position:relative;
+}
+.sub-nav a:hover,.sub-nav button:hover,.sub-nav a.is-active{color:var(--gold-light)}
+.sub-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.btn-ghost{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:40px;padding:8px 16px;border-radius:999px;cursor:pointer;
+  background:rgba(255,255,255,.04);border:1px solid rgba(196,214,232,.28);
+  color:var(--ink);font-size:13.5px;white-space:nowrap;
+  transition:background .2s ease,border-color .2s ease,color .2s ease;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.09);border-color:rgba(228,201,130,.55)}
+.btn-gold{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:42px;padding:9px 20px;border-radius:999px;cursor:pointer;border:none;
+  background:linear-gradient(135deg, rgba(228,201,130,.26) 0%, rgba(200,164,93,.18) 50%, rgba(150,196,244,.16) 100%);
+  box-shadow:inset 0 1px 0 rgba(255,251,242,.42), 0 8px 24px rgba(2,6,14,.35);
+  outline:1px solid rgba(228,201,130,.5);outline-offset:-1px;
+  color:var(--glass-white);font-size:14px;font-weight:500;white-space:nowrap;
+  transition:transform .18s ease,box-shadow .18s ease,outline-color .18s ease;
+}
+.btn-gold:hover{
+  transform:translateY(-1px);
+  outline-color:rgba(228,201,130,.85);
+  box-shadow:inset 0 1px 0 rgba(255,251,242,.6), 0 10px 28px rgba(200,164,93,.18);
+}
+
+/* Mobile Sub-Header Burger */
+.sub-burger-toggle{display:none}
+.sub-burger-btn{display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:999px;border:1px solid rgba(196,214,232,.3);background:rgba(255,255,255,.05);cursor:pointer}
+@media (max-width:980px){
+  .sub-nav{
+    display:none;position:fixed;top:69px;left:16px;right:16px;z-index:40;
+    flex-direction:column;align-items:stretch;gap:4px;padding:14px;border-radius:20px;
+    background:rgba(7,20,38,.96);border:1px solid rgba(196,214,232,.22);
+    -webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);
+    box-shadow:0 18px 46px rgba(0,0,0,.55);
+  }
+  .sub-nav a{padding:11px 14px;border-radius:12px;min-height:44px;display:flex;align-items:center}
+  .sub-nav a:hover{background:rgba(255,255,255,.06)}
+  .sub-burger-toggle:checked ~ .sub-nav{display:flex}
+  .sub-burger-btn{display:inline-flex}
+}
+
+.sub-container{max-width:1180px;margin:0 auto;padding:36px 20px 64px}
+.sub-page{display:none}
+.sub-page.is-active{display:block;animation:fadePanel .32s cubic-bezier(.16,1,.3,1)}
+@keyframes fadePanel{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* Glass Cards & Typography */
+.glass-card{
+  background:linear-gradient(155deg, rgba(21,42,69,.52) 0%, rgba(11,25,48,.66) 60%, rgba(7,20,38,.78) 100%);
+  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+  border:1px solid rgba(196,214,232,.18);
+  border-radius:20px;
+  box-shadow:0 14px 40px rgba(2,6,15,.42), inset 0 1px 0 rgba(255,255,255,.09);
+  padding:26px;
+}
+.glass-card-gold{
+  border-color:rgba(200,164,93,.38);
+  box-shadow:0 16px 46px rgba(2,6,15,.48), 0 0 34px rgba(200,164,93,.08), inset 0 1px 0 rgba(228,201,130,.24);
+}
+.sec-block{margin-bottom:54px}
+.sec-head{margin-bottom:24px;max-width:74ch}
+.sec-kicker{font-size:13px;color:var(--gold-light);letter-spacing:.02em;margin-bottom:8px;display:block}
+.sec-title{font-size:clamp(22px, 3vw, 32px);font-weight:600;line-height:1.35;color:var(--glass-white);margin-bottom:10px}
+.sec-desc{font-size:15.5px;line-height:1.85;color:var(--text-gray)}
+
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:920px){.grid-3{grid-template-columns:1fr}}
+@media (max-width:760px){.grid-2{grid-template-columns:1fr}}
+
+/* Framework references */
+.ref-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+@media (max-width:860px){.ref-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:540px){.ref-list{grid-template-columns:1fr}}
+.ref-item{
+  padding:14px 16px;border-radius:14px;direction:ltr;text-align:left;
+  background:rgba(255,255,255,.035);border:1px solid rgba(196,214,232,.14);
+  font-family:'Sora',sans-serif;font-size:13px;color:var(--feat);line-height:1.45;
+}
+.ref-item small{display:block;color:var(--gold-light);font-size:11px;margin-bottom:4px}
+
+/* Free First Session Banner */
+.free-box{
+  display:grid;grid-template-columns:1.25fr .95fr;gap:28px;align-items:center;
+}
+@media (max-width:820px){.free-box{grid-template-columns:1fr}}
+.check-list{display:flex;flex-direction:column;gap:10px;margin:16px 0}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--glass-white);line-height:1.7}
+.check-list li::before{content:'✦';color:var(--gold-light);font-size:13px;margin-top:2px;flex-shrink:0}
+
+/* Service cards */
+.srv-card{display:flex;flex-direction:column;justify-content:space-between;gap:18px;transition:transform .22s ease,border-color .22s ease}
+.srv-card:hover{transform:translateY(-3px);border-color:rgba(228,201,130,.38)}
+.srv-icon{
+  width:46px;height:46px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;
+  background:rgba(200,164,93,.12);border:1px solid rgba(200,164,93,.32);color:var(--gold-light);margin-bottom:10px;
+}
+.srv-card h3{font-size:19px;font-weight:600;color:var(--glass-white);margin-bottom:8px;line-height:1.45}
+.srv-card p{font-size:14.5px;line-height:1.8;color:var(--text-gray)}
+.srv-subbox{
+  padding:14px;border-radius:14px;background:rgba(7,20,38,.55);
+  border:1px solid rgba(196,214,232,.12);margin-top:10px;
+}
+.srv-subbox h4{font-size:14px;color:var(--gold-light);margin-bottom:8px;font-weight:600}
+.tag-flow{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:13px;color:var(--feat);line-height:1.7}
+.tag-flow span::before{content:'• ';color:var(--gold)}
+
+/* Real Chart Empty State */
+.chart-empty{
+  padding:20px;border-radius:14px;text-align:center;
+  background:rgba(7,20,38,.65);border:1px dashed rgba(196,214,232,.25);
+  color:var(--text-gray);font-size:13.5px;line-height:1.7;
+}
+
+/* Comparison Table */
+.table-wrap{overflow-x:auto;border-radius:18px;border:1px solid rgba(196,214,232,.18);background:rgba(7,20,38,.55)}
+.cmp-table{width:100%;border-collapse:collapse;min-width:580px;text-align:right;font-size:14.5px}
+.cmp-table th,.cmp-table td{padding:14px 18px;border-bottom:1px solid rgba(196,214,232,.1)}
+.cmp-table th{background:rgba(21,42,69,.65);color:var(--gold-light);font-weight:600;font-size:14px}
+.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table td:first-child{color:var(--glass-white);font-weight:500}
+.cmp-table td:nth-child(2){color:var(--sub)}
+.cmp-table td:nth-child(3){color:var(--gold-light);font-weight:500}
+
+/* Pricing Tabs & Cards */
+.seg-tabs{display:inline-flex;flex-wrap:wrap;gap:8px;padding:6px;border-radius:16px;background:rgba(7,20,38,.72);border:1px solid rgba(196,214,232,.16);margin-bottom:22px}
+.seg-tab{
+  padding:10px 18px;border-radius:12px;border:none;background:transparent;
+  color:var(--text-gray);cursor:pointer;font-size:14px;min-height:40px;
+  transition:background .18s ease,color .18s ease;
+}
+.seg-tab.is-active{background:rgba(200,164,93,.2);color:var(--gold-light);outline:1px solid rgba(200,164,93,.4)}
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.price-card{
+  display:flex;flex-direction:column;justify-content:space-between;gap:14px;
+  padding:20px;border-radius:18px;
+  background:rgba(11,25,48,.66);border:1px solid rgba(196,214,232,.16);
+}
+.price-card.is-featured{border-color:rgba(200,164,93,.5);background:linear-gradient(160deg, rgba(21,42,69,.78), rgba(11,25,48,.82))}
+.price-old{text-decoration:line-through;color:var(--sub);font-size:13.5px;font-variant-numeric:tabular-nums}
+.price-off{color:var(--gold-light);font-size:13px;font-weight:600}
+.price-final{font-size:21px;font-weight:700;color:var(--glass-white);font-variant-numeric:tabular-nums}
+.price-meta{font-size:13px;color:var(--text-gray);line-height:1.7}
+
+/* =========================================================
+   FORM STEPPER & INPUTS
+   ========================================================= */
+.stepper{
+  display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-bottom:24px;
+}
+@media (max-width:780px){.stepper{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.step-dot{
+  display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:14px;
+  background:rgba(11,25,48,.55);border:1px solid rgba(196,214,232,.14);
+  color:var(--sub);font-size:12.5px;cursor:pointer;text-align:right;min-height:44px;
+  transition:border-color .18s ease,background .18s ease,color .18s ease;
+}
+.step-dot .num{
+  width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.08);font-size:12px;font-weight:600;flex-shrink:0;
+}
+.step-dot.is-current{border-color:rgba(228,201,130,.65);background:rgba(200,164,93,.15);color:var(--glass-white)}
+.step-dot.is-current .num{background:var(--gold);color:#071426}
+.step-dot.is-done{border-color:rgba(159,224,255,.35);color:var(--feat)}
+.step-dot.is-done .num{background:rgba(159,224,255,.22);color:#9fe0ff}
+
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:680px){.form-grid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.is-full{grid-column:1 / -1}
+.field label{font-size:13.5px;color:var(--feat);font-weight:500}
+.field label .req{color:var(--gold-light);margin-right:3px}
+.input,.select,.textarea{
+  width:100%;padding:12px 14px;border-radius:12px;min-height:46px;
+  background:rgba(7,20,38,.72);border:1px solid rgba(196,214,232,.22);
+  color:var(--glass-white);font-size:14.5px;
+  transition:border-color .18s ease,background .18s ease;
+}
+.input:focus,.select:focus,.textarea:focus{border-color:var(--gold-light);background:rgba(11,25,48,.85);outline:none}
+.textarea{min-height:96px;resize:vertical;line-height:1.7}
+.field-error{font-size:12.5px;color:#ffb4b4;display:none}
+.field.has-error .input,.field.has-error .select,.field.has-error .textarea{border-color:#ff8a8a}
+.field.has-error .field-error{display:block}
+
+/* Radio & Checkbox Choice Cards */
+.choice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.choice-grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:740px){.choice-grid,.choice-grid-2{grid-template-columns:1fr}}
+.choice-card{
+  position:relative;display:flex;flex-direction:column;gap:6px;
+  padding:16px;border-radius:16px;cursor:pointer;
+  background:rgba(7,20,38,.62);border:1px solid rgba(196,214,232,.18);
+  transition:border-color .18s ease,background .18s ease,transform .18s ease;
+}
+.choice-card:hover{border-color:rgba(228,201,130,.45)}
+.choice-card.is-selected{
+  border-color:var(--gold-light);
+  background:linear-gradient(155deg, rgba(200,164,93,.18), rgba(21,42,69,.7));
+  box-shadow:0 0 24px rgba(200,164,93,.12);
+}
+.choice-card input{position:absolute;opacity:0;pointer-events:none}
+.choice-title{font-size:15.5px;font-weight:600;color:var(--glass-white)}
+.choice-sub{font-size:13px;color:var(--text-gray);line-height:1.65}
+
+.topic-chips{display:flex;flex-wrap:wrap;gap:10px}
+.topic-chip{
+  display:inline-flex;align-items:center;gap:8px;min-height:42px;
+  padding:8px 14px;border-radius:12px;cursor:pointer;font-size:13.5px;
+  background:rgba(7,20,38,.62);border:1px solid rgba(196,214,232,.2);color:var(--text-gray);
+  transition:border-color .18s ease,background .18s ease,color .18s ease;
+}
+.topic-chip.is-selected{background:rgba(200,164,93,.18);border-color:var(--gold-light);color:var(--glass-white)}
+.topic-chip input{accent-color:var(--gold)}
+
+/* Jalali Date Picker */
+.jcal-wrap{
+  padding:16px;border-radius:16px;background:rgba(7,20,38,.72);
+  border:1px solid rgba(196,214,232,.2);max-width:360px;width:100%;
+}
+.jcal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.jcal-nav{
+  width:38px;height:38px;border-radius:10px;border:1px solid rgba(196,214,232,.22);
+  background:rgba(255,255,255,.04);color:var(--glass-white);cursor:pointer;font-size:16px;
+}
+.jcal-nav:hover{border-color:var(--gold-light);color:var(--gold-light)}
+.jcal-title{font-size:14.5px;font-weight:600;color:var(--gold-light)}
+.jcal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.jcal-wd{font-size:11.5px;color:var(--sub);padding:4px 0}
+.jcal-day{
+  height:36px;border-radius:9px;border:none;background:transparent;color:var(--glass-white);
+  cursor:pointer;font-size:13px;font-variant-numeric:tabular-nums;transition:background .15s ease;
+}
+.jcal-day:hover:not(:disabled){background:rgba(255,255,255,.1)}
+.jcal-day.is-today{outline:1px solid rgba(159,224,255,.55)}
+.jcal-day.is-selected{background:var(--gold);color:#071426;font-weight:700}
+.jcal-day:disabled{opacity:.25;cursor:not-allowed}
+
+/* Pre-invoice & Final Invoice */
+.invoice-box{
+  padding:20px;border-radius:16px;
+  background:rgba(7,20,38,.82);border:1px solid rgba(200,164,93,.32);
+}
+.invoice-row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid rgba(196,214,232,.1);font-size:14px}
+.invoice-row:last-child{border-bottom:none}
+.invoice-row span:first-child{color:var(--text-gray)}
+.invoice-row span:last-child{color:var(--glass-white);font-weight:500;text-align:left}
+.invoice-total{font-size:17px;color:var(--gold-light)!important;font-weight:700!important}
+.invoice-raw{
+  width:100%;min-height:300px;padding:16px;border-radius:14px;
+  background:rgba(2,6,15,.88);border:1px solid rgba(196,214,232,.22);
+  color:#e8f0fa;font-family:inherit;font-size:13.5px;line-height:1.85;resize:vertical;
+}
+
+.form-actions{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;
+  margin-top:24px;padding-top:18px;border-top:1px solid rgba(196,214,232,.14);
+}
+.form-actions-group{display:flex;flex-wrap:wrap;gap:10px}
+
+.inline-confirm{
+  display:none;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  margin-top:14px;padding:14px 16px;border-radius:14px;
+  background:rgba(148,115,60,.18);border:1px solid rgba(228,201,130,.45);
+  font-size:13.5px;color:var(--glass-white);
+}
+.inline-confirm.is-open{display:flex}
+
+/* FAQ Accordion */
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq-item{
+  border-radius:16px;overflow:hidden;
+  background:rgba(11,25,48,.58);border:1px solid rgba(196,214,232,.16);
+}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:16px 20px;background:none;border:none;cursor:pointer;text-align:right;
+  font-size:15px;font-weight:500;color:var(--glass-white);min-height:52px;
+}
+.faq-q:hover{color:var(--gold-light)}
+.faq-icon{transition:transform .22s ease;flex-shrink:0;color:var(--gold-light)}
+.faq-item.is-open .faq-icon{transform:rotate(180deg)}
+.faq-a{
+  display:none;padding:0 20px 18px;font-size:14px;line-height:1.85;color:var(--text-gray);
+  border-top:1px solid rgba(196,214,232,.08);padding-top:12px;
+}
+.faq-item.is-open .faq-a{display:block}
+
+/* Sub-page Full Footer */
+.sub-footer{
+  margin-top:40px;padding:34px 24px;border-radius:22px;
+  background:rgba(7,20,38,.78);border:1px solid rgba(196,214,232,.16);
+}
+.sub-footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:24px}
+@media (max-width:780px){.sub-footer-grid{grid-template-columns:1fr}}
+.sub-footer h4{font-size:15px;color:var(--gold-light);margin-bottom:12px}
+.sub-footer ul{display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--text-gray)}
+.sub-footer a:hover{color:var(--gold-light)}
+
+/* Toast Notification */
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);z-index:80;
+  padding:12px 22px;border-radius:999px;
+  background:rgba(11,25,48,.94);border:1px solid rgba(228,201,130,.55);
+  color:var(--glass-white);font-size:13.5px;
+  box-shadow:0 12px 32px rgba(0,0,0,.55);
+  opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;
+}
+.toast.is-show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.notice-gold{
+  padding:12px 16px;border-radius:12px;
+  background:rgba(200,164,93,.12);border:1px solid rgba(200,164,93,.35);
+  color:var(--gold-light);font-size:13.5px;line-height:1.7;
+}
+.hidden{display:none!important}
+
+/* REDUCED MOTION — MUST BE LAST RULE */
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<video class="art" autoplay muted loop playsinline preload="auto" aria-hidden="true"
+  poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/130837c4-0244-4f37-9c61-8d801d93fd29.jpg"
+  src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104303_0c6d60b2-9353-408e-9449-585108a22fb5.mp4"></video>
+<div class="veil"></div>
+
+<!-- =========================================================
+     HOME VIEW (EXACT NEURAL SINGLE-VIEWPORT COMPOSITION)
+     ========================================================= -->
+<header class="bar">
+  <a class="brand" href="#home" data-route="home" aria-label="صفحه اصلی راهنکس">
+    <svg viewBox="0 0 23 17" aria-hidden="true">
+      <path d="M8.15 0.9 L4.55 0.9 L0.5 9.3 L4.1 9.3 Z"/>
+      <path d="M17.0 0 L13.4 0 L6.15 16.4 L9.75 16.4 Z"/>
+      <path d="M22.9 0 L19.3 0 L15.0 7.6 L18.6 7.6 Z"/>
+      <path d="M22.6 6.9 L19.0 6.9 L14.05 16.4 L17.65 16.4 Z"/>
+    </svg>
+    <span id="word">RAHNEXT</span>
+  </a>
+  <input class="navtoggle" type="checkbox" id="nav-open">
+  <label class="scrim" for="nav-open" aria-hidden="true"></label>
+  <label class="burger" for="nav-open" aria-label="منو">
+    <svg viewBox="0 0 22 14" aria-hidden="true">
+      <path class="b1" d="M1 1 H21"/>
+      <path class="b2" d="M1 7 H21"/>
+      <path class="b3" d="M1 13 H21"/>
+    </svg>
+  </label>
+  <div class="navpanel">
+    <nav class="menu" aria-label="منوی اصلی">
+      <a href="#about" data-route="overview" data-sec="sec-about"><span id="about">درباره راهنکس</span></a>
+      <a href="#services" data-route="overview" data-sec="sec-services"><span id="product">خدمات</span></a>
+      <a href="#pricing" data-route="overview" data-sec="sec-pricing"><span id="solutions">تعرفه‌ها</span>
+        <svg class="caret" viewBox="0 0 9 6" aria-hidden="true"><path d="M0.7 1.1 L4.5 4.6 L8.3 1.1"/></svg></a>
+      <a href="#faq" data-route="overview" data-sec="sec-faq"><span id="navfaq">پرسش‌های متداول</span></a>
+    </nav>
+    <a class="login" href="#form" data-route="form"><span id="login">شروع مسیر من</span>
+      <svg class="navarrow" viewBox="0 0 10 9" aria-hidden="true"><path d="M0 4.5 H9.1 M5.4 0.9 L9.2 4.5 L5.4 8.1"/></svg></a>
+    <a class="pill" href="https://t.me/Zarinxam_rahnext" target="_blank" rel="noopener noreferrer"><span id="contact">ارتباط با پشتیبانی</span></a>
+  </div>
+</header>
+
+<main class="hero" id="home">
+  <h1 class="title">
+    <span id="h1a">RAHNEXT | راهنکس</span>
+    <span id="h1b">همیشه یه راه دیگه‌ای هم هست!</span>
+  </h1>
+  <p class="sub">
+    <span id="sub1">به‌صرفه‌تر، باکیفیت‌تر و راه‌گشاتر!</span>
+    <span id="sub2">مرجعی نوگرا در مشاوره آنلاین و برنامه‌ریزی تحصیلی</span>
+  </p>
+  <a class="cta" href="#form" data-route="form">
+    <span id="cta">شروع مسیر من</span>
+    <svg class="arrow" viewBox="0 0 16 11" aria-hidden="true">
+      <path d="M0 5.5 H14.6 M10.3 1.2 L14.9 5.5 L10.3 9.8"/>
+    </svg>
+  </a>
+  <div class="hero-links">
+    <a href="#services" data-route="overview" data-sec="sec-services">مشاهده خدمات</a>
+    <span class="sep" aria-hidden="true">·</span>
+    <a href="#about" data-route="overview" data-sec="sec-about">آشنایی با روش کار راهنکس</a>
+    <span class="sep" aria-hidden="true">·</span>
+    <a href="#free-session" data-route="overview" data-sec="sec-free">جلسه اول رایگان</a>
+  </div>
+  <ul class="feats">
+    <li><a href="#free-session" data-route="overview" data-sec="sec-free"><svg class="chev" viewBox="0 0 11 20" aria-hidden="true"><path d="M1.15 1.15 L9.6 10 L1.15 18.85"/></svg><span id="f1">جلسه اول رایگان</span></a></li>
+    <li><a href="#services" data-route="overview" data-sec="sec-services"><svg class="chev" viewBox="0 0 11 20" aria-hidden="true"><path d="M1.15 1.15 L9.6 10 L1.15 18.85"/></svg><span id="f2">مشاوره تخصصی</span></a></li>
+    <li><a href="#services" data-route="overview" data-sec="sec-services"><svg class="chev" viewBox="0 0 11 20" aria-hidden="true"><path d="M1.15 1.15 L9.6 10 L1.15 18.85"/></svg><span id="f3">برنامه‌ریزی اختصاصی</span></a></li>
+    <li><a href="#services" data-route="overview" data-sec="sec-services"><svg class="chev" viewBox="0 0 11 20" aria-hidden="true"><path d="M1.15 1.15 L9.6 10 L1.15 18.85"/></svg><span id="f4">همراهی مسیر تحصیل</span></a></li>
+  </ul>
+  <span class="rule" aria-hidden="true"></span>
+</main>
+
+<footer class="foot">
+  <span id="foot1">راهنکس؛ همیشه یه راه دیگه‌ای هم هست!</span>
+  <span id="foot2">طراحی و مدیریت: BABAEI</span>
+</footer>
+
+<!-- =========================================================
+     SUB-PAGES WORKSPACE (OVERVIEW / FORM / INVOICE)
+     ========================================================= -->
+<div class="subshell" id="subshell" aria-label="فضای خدمات و ثبت‌نام راهنکس">
+  <header class="sub-header">
+    <div class="sub-header-in">
+      <a class="sub-brand" href="#home" data-route="home">
+        <svg viewBox="0 0 23 17" aria-hidden="true">
+          <path d="M8.15 0.9 L4.55 0.9 L0.5 9.3 L4.1 9.3 Z"/>
+          <path d="M17.0 0 L13.4 0 L6.15 16.4 L9.75 16.4 Z"/>
+          <path d="M22.9 0 L19.3 0 L15.0 7.6 L18.6 7.6 Z"/>
+          <path d="M22.6 6.9 L19.0 6.9 L14.05 16.4 L17.65 16.4 Z"/>
+        </svg>
+        <span>RAHNEXT</span>
+      </a>
+
+      <input type="checkbox" id="sub-nav-open" class="sub-burger-toggle">
+      <nav class="sub-nav" aria-label="منوی صفحات">
+        <a href="#home" data-route="home">خانه</a>
+        <a href="#about" data-route="overview" data-sec="sec-about">درباره راهنکس</a>
+        <a href="#consult" data-route="overview" data-sec="srv-consult">مشاوره</a>
+        <a href="#plan" data-route="overview" data-sec="srv-plan">برنامه‌ریزی</a>
+        <a href="#combo" data-route="overview" data-sec="srv-combo">مشاوره همراه برنامه‌ریزی</a>
+        <a href="#pricing" data-route="overview" data-sec="sec-pricing">تعرفه‌ها</a>
+        <a href="#faq" data-route="overview" data-sec="sec-faq">پرسش‌های متداول</a>
+      </nav>
+
+      <div class="sub-actions">
+        <button type="button" class="btn-gold" data-route="form">شروع مسیر من</button>
+        <label class="sub-burger-btn" for="sub-nav-open" aria-label="باز کردن منو">
+          <svg width="20" height="14" viewBox="0 0 22 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <path d="M1 1 H21"/><path d="M1 7 H21"/><path d="M1 13 H21"/>
+          </svg>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <div class="sub-container">
+    <!-- ==================== PAGE 1: OVERVIEW ==================== -->
+    <div id="page-overview" class="sub-page">
+
+      <!-- About & Intro -->
+      <section class="sec-block" id="sec-about">
+        <div class="glass-card">
+          <span class="sec-kicker">درباره راهنکس | نگاهی مبتنی بر چارچوب‌های معتبر جهانی</span>
+          <h2 class="sec-title">نگاهی مبتنی بر چارچوب‌های معتبر جهانی</h2>
+          <p class="sec-desc">
+            راهنکس، مرجعی نوگرا در ارائه خدمات مشاوره آنلاین و برنامه‌ریزی تحصیلی است. ما معتقدیم هر دانش‌آموز و دانشجو مسیر یادگیری و نیازهای متفاوتی دارد؛ به همین دلیل تلاش می‌کنیم خدماتی منعطف، شخصی‌سازی‌شده و متناسب با شرایط هر فرد ارائه دهیم.
+            از مشاوره تخصصی و همراهی تحصیلی تا طراحی برنامه‌های شخصی‌سازی‌شده و پیگیری مستمر پیشرفت، راهنکس در تلاش است مسیر رشد تحصیلی را ساده‌تر، منظم‌تر و قابل‌دسترس‌تر کند.
+          </p>
+          <p class="sec-desc" style="margin-top:14px">
+            در طراحی ساختار خدمات راهنکس، توجه به اصول حرفه‌ای، اخلاقی، محرمانگی و کیفیت خدمات آنلاین اهمیت اساسی دارد. رویکرد ما با الهام از منابع معتبر بین‌المللی از جمله راهنماهای APA در حوزه خدمات روان‌شناختی از راه دور، اصول اخلاق حرفه‌ای APA و چارچوب‌های ASCA در مشاوره مدرسه و رشد تحصیلی شکل گرفته است.
+          </p>
+          <div class="ref-list" aria-label="چارچوب‌ها و منابع الهام">
+            <div class="ref-item"><small>01 · Reference</small>American Psychological Association (APA)</div>
+            <div class="ref-item"><small>02 · Telepsychology</small>APA Guidelines for the Practice of Telepsychology</div>
+            <div class="ref-item"><small>03 · Ethics</small>APA Ethical Principles and Code of Conduct</div>
+            <div class="ref-item"><small>04 · School Counseling</small>American School Counselor Association (ASCA)</div>
+            <div class="ref-item"><small>05 · Framework</small>ASCA National Model</div>
+            <div class="ref-item"><small>06 · Standards</small>ASCA School Counselor Professional Standards &amp; Competencies</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Free First Session -->
+      <section class="sec-block" id="sec-free">
+        <div class="glass-card glass-card-gold free-box">
+          <div>
+            <span class="sec-kicker">مزیت ویژه راهنکس</span>
+            <h2 class="sec-title">اولین قدم، با ما رایگان است.</h2>
+            <p class="sec-desc">
+              برای آشنایی با نیازها، شناخت شرایط تحصیلی و بررسی مسیر مناسب، امکان استفاده از جلسه نخست مشاوره به‌صورت رایگان فراهم شده است.
+              بدون پرداخت هزینه اولیه، با راهنکس آشنا شوید و برای ادامه مسیر تصمیم بگیرید.
+            </p>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:20px">
+              <a class="btn-gold" href="https://t.me/Zarinxam_rahnext" target="_blank" rel="noopener noreferrer" id="free-login-shortcut">جلسه مشاوره رایگانتو شروع کن</a>
+              <button type="button" class="btn-ghost" id="btn-free-form">ثبت مشخصات جلسه رایگان در فرم</button>
+            </div>
+          </div>
+          <div class="srv-subbox">
+            <h4>ویژگی‌های جلسه آشنایی رایگان</h4>
+            <ul class="check-list">
+              <li>اولین جلسه مشاوره رایگان</li>
+              <li>مدت جلسه آشنایی: ۴۵ دقیقه</li>
+              <li>ارتباط اولیه متنی</li>
+              <li>امکان استفاده محدود از پیام صوتی</li>
+              <li>بدون نیاز به خرید بسته در شروع</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Three Main Services -->
+      <section class="sec-block" id="sec-services">
+        <div class="sec-head">
+          <span class="sec-kicker">خدمات تخصصی راهنکس</span>
+          <h2 class="sec-title">سه مسیر شفاف متناسب با نیاز تحصیلی شما</h2>
+          <p class="sec-desc">هر خدمت با ساختار مشخص، پشتیبانی واقعی و شفافیت کامل تعرفه‌ها طراحی شده است تا دقیقاً همان همراهی موردنیازتان را انتخاب کنید.</p>
+        </div>
+
+        <div class="grid-3">
+          <!-- Service 1: Consultation -->
+          <article class="glass-card srv-card" id="srv-consult">
+            <div>
+              <div class="srv-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <h3>مشاوره؛ وقتی به یک مسیر روشن‌تر نیاز داری.</h3>
+              <p>
+                در مسیر تحصیل، گاهی مسئله فقط ندانستن روش مطالعه نیست. افت انگیزه، سردرگمی، انتخاب رشته، استرس امتحان، ضعف تمرکز و مدیریت زمان می‌توانند عملکرد تحصیلی را تحت تأثیر قرار دهند. در خدمات مشاوره راهنکس، متناسب با نیاز هر فرد، موضوعات بررسی شده و برای ادامه مسیر راهکارهای قابل اجرا ارائه می‌شوند.
+              </p>
+              <div class="srv-subbox">
+                <h4>موضوعات قابل ارائه</h4>
+                <div class="tag-flow">
+                  <span>بررسی مشکلات تحصیلی</span><span>مدیریت افت تحصیلی</span><span>افزایش انگیزه</span><span>مدیریت زمان</span><span>روش‌های صحیح مطالعه</span><span>برنامه‌ریزی و هدف‌گذاری</span><span>انتخاب رشته</span><span>آمادگی کنکور</span><span>مدیریت استرس امتحانات</span><span>کشف استعداد و علایق</span><span>پیگیری و ارزیابی مسیر تحصیلی</span>
+                </div>
+              </div>
+              <div class="srv-subbox">
+                <h4>سه روش ارائه مشاوره (هر جلسه ۷۵ دقیقه)</h4>
+                <ul class="check-list" style="margin:6px 0 0;font-size:13px">
+                  <li><strong>Standard | مشاوره متنی:</strong> ارتباط نوشتاری در چت</li>
+                  <li><strong>Plus | مشاوره ویسی:</strong> تبادل پیام‌های صوتی و متنی برای توضیح مفصل‌تر</li>
+                  <li><strong>Premium | مشاوره تماس صوتی:</strong> تماس صوتی زنده از طریق بستر ارتباطی توافق‌شده</li>
+                </ul>
+              </div>
+            </div>
+            <button type="button" class="btn-gold" data-pick-service="consult">انتخاب مشاوره تخصصی</button>
+          </article>
+
+          <!-- Service 2: Planning -->
+          <article class="glass-card srv-card" id="srv-plan">
+            <div>
+              <div class="srv-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              </div>
+              <h3>برنامه‌ریزی؛ از هدف تا اجرای واقعی.</h3>
+              <p>
+                داشتن هدف بدون برنامه عملی، معمولاً به نتیجه مطلوب نمی‌رسد. راهنکس با طراحی برنامه‌های شخصی‌سازی‌شده تلاش می‌کند مسیر مطالعه را بر اساس شرایط، ظرفیت زمانی، سطح درسی و هدف فرد تنظیم کند. برنامه‌ها صرفاً یک جدول ثابت نیستند؛ بلکه در طول مسیر قابل بررسی و به‌روزرسانی‌اند.
+              </p>
+              <div class="srv-subbox">
+                <h4>انواع و امکانات برنامه‌ریزی</h4>
+                <div class="tag-flow">
+                  <span>هفتگی</span><span>ماهانه</span><span>سه‌ماهه</span><span>شش‌ماهه / نیم‌سال</span><span>یک‌ساله تحصیلی</span>
+                </div>
+                <ul class="check-list" style="margin:10px 0 0;font-size:13px">
+                  <li>دریافت اطلاعات اولیه و تنظیم برنامه شخصی‌سازی‌شده</li>
+                  <li>پشتیبانی اجرای برنامه و دریافت گزارش هفتگی</li>
+                  <li>بررسی مشکلات اجرا، اصلاح و به‌روزرسانی برنامه</li>
+                  <li>تهیه و ارسال نمودار پیشرفت بر اساس گزارش‌های واقعی</li>
+                </ul>
+              </div>
+              <div class="notice-gold" style="margin-top:10px">
+                <strong>پیشنهاد ویژه: هفته اول برنامه‌ریزی رایگان</strong> (یک‌بار برای هر کاربر؛ تعرفه بسته هفتگی پولی پس از دوره آزمایشی یا تمدید قابل انتخاب است.)
+              </div>
+              <div class="srv-subbox">
+                <h4>نمودار پیشرفت واقعی</h4>
+                <div class="chart-empty" id="real-chart-box">
+                  هنوز اطلاعات کافی برای نمایش نمودار ثبت نشده است
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn-gold" data-pick-service="plan">انتخاب برنامه‌ریزی تحصیلی</button>
+          </article>
+
+          <!-- Service 3: Combo + Academic Therapist -->
+          <article class="glass-card srv-card glass-card-gold" id="srv-combo">
+            <div>
+              <div class="srv-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <h3>فقط برنامه نداشته باش؛ همراه مسیرت هم باش.</h3>
+              <p>
+                در این خدمت، کاربر هم از مشاوره تخصصی بهره‌مند می‌شود و هم یک برنامه تحصیلی اختصاصی دریافت می‌کند. این مدل برای افرادی مناسب است که علاوه بر نیاز به برنامه منظم، در مسیر اجرای آن به راهنمایی، بررسی موانع و همراهی مستمر نیاز دارند.
+              </p>
+              <div class="srv-subbox">
+                <h4>امکانات پکیج ترکیبی</h4>
+                <ul class="check-list" style="margin:6px 0 0;font-size:13px">
+                  <li>برنامه تحصیلی اختصاصی + جلسات مشاوره در طول دوره</li>
+                  <li>بررسی عملکرد، تغییرات تحصیلی و گزارش پیشرفت</li>
+                  <li>اصلاح برنامه، پیگیری اهداف و بررسی نقاط ضعف و قوت</li>
+                  <li>راهنمایی تخصصی در مدیریت زمان و انگیزه</li>
+                </ul>
+              </div>
+              <div class="srv-subbox">
+                <h4>گزینه همراهی «تراپیست تحصیلی»</h4>
+                <p style="font-size:13px;line-height:1.75">
+                  تراپیست تحصیلی، روان‌شناس متخصص در حوزه بالینی و تحصیلی است که در کنار دانش‌آموز یا دانشجو قرار می‌گیرد تا ضمن همراهی در فرایند یادگیری و اجرای برنامه، مشکلات روانی که می‌توانند تحصیل فرد را دچار اختلال کنند نیز بررسی و حل شوند. این همراهی به‌ویژه برای دانش‌آموزان کنکوری بسیار مؤثر است؛ زیرا فشار روانی، اضطراب، استرس و بی‌انگیزگی از مهم‌ترین عواملی هستند که می‌توانند عملکرد تحصیلی را تحت تأثیر قرار دهند. روان‌شناس متخصص راهنکس این موارد را به‌صورت حرفه‌ای بررسی کرده و در کنار برنامه‌ریزی تحصیلی، به حل آن‌ها کمک می‌کند.
+                </p>
+                <label class="topic-chip" id="overview-therapist-label" style="margin-top:10px;width:100%;justify-content:center">
+                  <input type="checkbox" id="overview-therapist-toggle">
+                  <span>انتخاب همراهی تراپیست تحصیلی در درخواست من</span>
+                </label>
+              </div>
+            </div>
+            <button type="button" class="btn-gold" data-pick-service="combo">انتخاب مشاوره همراه برنامه‌ریزی</button>
+          </article>
+        </div>
+      </section>
+
+      <!-- Why Rahnext Comparison -->
+      <section class="sec-block" id="sec-compare">
+        <div class="sec-head">
+          <span class="sec-kicker">مقایسه ساختار خدمات</span>
+          <h2 class="sec-title">چرا راهنکس؟</h2>
+        </div>
+        <div class="table-wrap">
+          <table class="cmp-table">
+            <thead>
+              <tr>
+                <th>ویژگی</th>
+                <th>مدل صرفاً جلسه‌ای</th>
+                <th>مدل خدمات راهنکس</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>جلسه آشنایی رایگان</td><td>وابسته به ارائه‌دهنده</td><td>پیش‌بینی شده</td></tr>
+              <tr><td>مشاوره متنی</td><td>در برخی خدمات</td><td>Standard</td></tr>
+              <tr><td>مشاوره ویسی</td><td>در برخی خدمات</td><td>Plus</td></tr>
+              <tr><td>تماس صوتی</td><td>در برخی خدمات</td><td>Premium</td></tr>
+              <tr><td>برنامه اختصاصی</td><td>ممکن است جداگانه باشد</td><td>خدمت مستقل</td></tr>
+              <tr><td>برنامه همراه مشاور</td><td>همیشه در دسترس نیست</td><td>پکیج ترکیبی</td></tr>
+              <tr><td>پیگیری اجرای برنامه</td><td>ممکن است محدود باشد</td><td>در خدمات برنامه‌ریزی</td></tr>
+              <tr><td>گزارش هفتگی</td><td>وابسته به سرویس</td><td>در ساختار برنامه‌ریزی</td></tr>
+              <tr><td>نمودار پیشرفت</td><td>وابسته به سرویس</td><td>مبتنی بر گزارش واقعی</td></tr>
+              <tr><td>اصلاح برنامه</td><td>وابسته به شرایط</td><td>در برنامه‌ریزی پیش‌بینی شده</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="sec-desc" style="margin-top:16px;color:var(--gold-light)">
+          تمرکز راهنکس تنها بر ارائه یک جلسه نیست؛ بلکه بر ساختن مسیری قابل پیگیری، منعطف و متناسب با شرایط فرد است.
+        </p>
+      </section>
+
+      <!-- Pricing Showcase -->
+      <section class="sec-block" id="sec-pricing">
+        <div class="sec-head">
+          <span class="sec-kicker">شفافیت تعرفه‌ها (تومان)</span>
+          <h2 class="sec-title">تعرفه خدمات و بسته‌های راهنکس</h2>
+          <p class="sec-desc">تمام تعرفه‌ها به‌صورت مرکزی و شفاف محاسبه می‌شوند. در صورت انتخاب مشاور با جنسیت مخالف، هزینه مربوطه به‌طور خودکار و شفاف قبل از ثبت نمایش داده می‌شود.</p>
+        </div>
+
+        <div class="seg-tabs" role="tablist" aria-label="فیلتر تعرفه خدمات">
+          <button type="button" class="seg-tab is-active" role="tab" aria-selected="true" data-pricing-tab="consult">مشاوره مستقل</button>
+          <button type="button" class="seg-tab" role="tab" aria-selected="false" data-pricing-tab="plan">برنامه‌ریزی مستقل</button>
+          <button type="button" class="seg-tab" role="tab" aria-selected="false" data-pricing-tab="combo">مشاوره همراه برنامه‌ریزی</button>
+        </div>
+
+        <div id="pricing-showcase-content"></div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="sec-block" id="sec-faq">
+        <div class="sec-head">
+          <span class="sec-kicker">پاسخ به پرسش‌های رایج</span>
+          <h2 class="sec-title">پرسش‌های متداول</h2>
+        </div>
+        <div class="faq-list" id="faq-list"></div>
+      </section>
+
+      <!-- Full Footer -->
+      <footer class="sub-footer">
+        <div class="sub-footer-grid">
+          <div>
+            <div class="sub-brand" style="margin-bottom:10px">
+              <svg viewBox="0 0 23 17" aria-hidden="true">
+                <path d="M8.15 0.9 L4.55 0.9 L0.5 9.3 L4.1 9.3 Z"/>
+                <path d="M17.0 0 L13.4 0 L6.15 16.4 L9.75 16.4 Z"/>
+                <path d="M22.9 0 L19.3 0 L15.0 7.6 L18.6 7.6 Z"/>
+                <path d="M22.6 6.9 L19.0 6.9 L14.05 16.4 L17.65 16.4 Z"/>
+              </svg>
+              <span>RAHNEXT</span>
+            </div>
+            <p class="sec-desc" style="font-size:14px">«همیشه یه راه دیگه‌ای هم هست!»<br>به‌صرفه‌تر، باکیفیت‌تر و راه‌گشاتر!</p>
+            <p style="font-size:13px;color:var(--gold-light);margin-top:12px">طراحی و مدیریت: BABAEI</p>
+          </div>
+          <div>
+            <h4>پیوندهای اصلی صفحات</h4>
+            <ul>
+              <li><a href="#home" data-route="home">خانه</a></li>
+              <li><a href="#about" data-route="overview" data-sec="sec-about">درباره راهنکس</a></li>
+              <li><a href="#consult" data-route="overview" data-sec="srv-consult">مشاوره</a></li>
+              <li><a href="#plan" data-route="overview" data-sec="srv-plan">برنامه‌ریزی</a></li>
+              <li><a href="#combo" data-route="overview" data-sec="srv-combo">مشاوره همراه برنامه‌ریزی</a></li>
+              <li><a href="#pricing" data-route="overview" data-sec="sec-pricing">تعرفه‌ها</a></li>
+              <li><a href="#faq" data-route="overview" data-sec="sec-faq">پرسش‌های متداول</a></li>
+              <li><a href="#form" data-route="form">شروع مسیر من</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>راه‌های ارتباطی پشتیبانی</h4>
+            <ul>
+              <li>تلگرام: <a href="https://t.me/Zarinxam_rahnext" target="_blank" rel="noopener noreferrer" dir="ltr">@Zarinxam_rahnext</a></li>
+              <li>روبیکا: <a href="https://rubika.ir/Zarinxam_rahnext" target="_blank" rel="noopener noreferrer" dir="ltr">@Zarinxam_rahnext</a></li>
+            </ul>
+            <div style="margin-top:16px">
+              <button type="button" class="btn-ghost" id="btn-clear-storage-footer" style="font-size:12.5px;min-height:36px">پاک کردن اطلاعات ذخیره‌شده در مرورگر</button>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ==================== PAGE 2: 6-STEP REGISTRATION & INVOICE ==================== -->
+    <div id="page-form" class="sub-page">
+      <div class="glass-card" id="form-shell">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px">
+          <div>
+            <span class="sec-kicker" style="margin-bottom:4px">تشکیل پرونده و ثبت درخواست راهنکس</span>
+            <h2 class="sec-title" style="margin-bottom:0;font-size:24px" id="form-page-heading">مسیر شخصی‌سازی‌شده خود را آغاز کنید</h2>
+          </div>
+          <button type="button" class="btn-ghost" data-route="overview" data-sec="sec-services">بازگشت به خدمات</button>
+        </div>
+
+        <!-- Stepper -->
+        <div class="stepper" id="form-stepper" role="navigation" aria-label="مراحل ثبت درخواست"></div>
+
+        <!-- Step 1: Service Selection -->
+        <div class="form-step" data-step="1">
+          <div class="field is-full">
+            <label>چه خدمتی از راهنکس می‌خواهید؟ <span class="req">*</span></label>
+            <div class="choice-grid" id="service-choices">
+              <label class="choice-card" data-value="consult">
+                <input type="radio" name="serviceType" value="consult">
+                <span class="choice-title">مشاوره تخصصی</span>
+                <span class="choice-sub">جلسات ۷۵ دقیقه‌ای به‌صورت متنی (Standard)، ویسی (Plus) یا تماس صوتی (Premium)</span>
+              </label>
+              <label class="choice-card" data-value="plan">
+                <input type="radio" name="serviceType" value="plan">
+                <span class="choice-title">برنامه‌ریزی تحصیلی</span>
+                <span class="choice-sub">طراحی برنامه شخصی‌سازی‌شده، گزارش هفتگی، اصلاح مسیر و نمودار پیشرفت واقعی</span>
+              </label>
+              <label class="choice-card" data-value="combo">
+                <input type="radio" name="serviceType" value="combo">
+                <span class="choice-title">مشاوره همراه با برنامه‌ریزی</span>
+                <span class="choice-sub">پکیج ترکیبی مشاوره و برنامه‌ریزی + امکان انتخاب همراهی تراپیست تحصیلی</span>
+              </label>
+            </div>
+            <span class="field-error" id="err-serviceType">لطفاً نوع خدمت موردنظر خود را انتخاب کنید.</span>
+          </div>
+
+          <div class="srv-subbox" style="margin-top:16px">
+            <label class="topic-chip" id="chip-intro-free" style="width:100%">
+              <input type="checkbox" id="f-isIntroFree">
+              <span>متقاضی «اولین جلسه مشاوره رایگان (۴۵ دقیقه آشنایی)» هستم (بدون نیاز به خرید بسته در شروع)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 2: Personal Info -->
+        <div class="form-step hidden" data-step="2">
+          <div class="form-grid">
+            <div class="field" id="wrap-fullName">
+              <label for="f-fullName">نام و نام خانوادگی <span class="req">*</span></label>
+              <input class="input" type="text" id="f-fullName" placeholder="مثلاً: سارا محمدی" autocomplete="name">
+              <span class="field-error">لطفاً نام و نام خانوادگی خود را وارد کنید.</span>
+            </div>
+            <div class="field" id="wrap-ageOrDob">
+              <label for="f-ageOrDob">سن یا تاریخ تولد <span class="req">*</span></label>
+              <input class="input" type="text" id="f-ageOrDob" placeholder="مثلاً: ۱۸ سال یا ۱۳۸۷/۰۴/۱۲ (محدودیت سنی وجود ندارد)">
+              <span class="field-error">لطفاً سن یا تاریخ تولد خود را وارد کنید.</span>
+            </div>
+            <div class="field" id="wrap-userGender">
+              <label for="f-userGender">جنسیت <span class="req">*</span></label>
+              <select class="select" id="f-userGender">
+                <option value="">انتخاب کنید...</option>
+                <option value="خانم">خانم</option>
+                <option value="آقا">آقا</option>
+              </select>
+              <span class="field-error">لطفاً جنسیت خود را انتخاب کنید.</span>
+            </div>
+            <div class="field" id="wrap-phone">
+              <label for="f-phone">شماره تماس <span class="req">*</span></label>
+              <input class="input" type="tel" id="f-phone" dir="ltr" placeholder="09123456789" autocomplete="tel">
+              <span class="field-error">لطفاً یک شماره تماس معتبر وارد کنید (حداقل ۱۰ رقم).</span>
+            </div>
+            <div class="field is-full" id="wrap-messenger">
+              <label>روش ارتباطی ترجیحی (فقط تلگرام یا روبیکا) <span class="req">*</span></label>
+              <div class="choice-grid-2" id="messenger-choices">
+                <label class="choice-card" data-value="تلگرام">
+                  <input type="radio" name="preferredMessenger" value="تلگرام">
+                  <span class="choice-title">تلگرام (@Zarinxam_rahnext)</span>
+                  <span class="choice-sub">ارسال و دریافت پیام از طریق تلگرام</span>
+                </label>
+                <label class="choice-card" data-value="روبیکا">
+                  <input type="radio" name="preferredMessenger" value="روبیکا">
+                  <span class="choice-title">روبیکا (@Zarinxam_rahnext)</span>
+                  <span class="choice-sub">ارسال و دریافت پیام از طریق روبیکا</span>
+                </label>
+              </div>
+              <span class="field-error">لطفاً تلگرام یا روبیکا را به‌عنوان روش ارتباطی انتخاب کنید.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Academic Info -->
+        <div class="form-step hidden" data-step="3">
+          <div class="form-grid">
+            <div class="field is-full" id="wrap-level">
+              <label for="f-level">مقطع تحصیلی <span class="req">*</span></label>
+              <select class="select" id="f-level">
+                <option value="">انتخاب مقطع تحصیلی...</option>
+                <option value="ابتدایی">ابتدایی</option>
+                <option value="متوسطه اول">متوسطه اول</option>
+                <option value="متوسطه دوم">متوسطه دوم</option>
+                <option value="کنکور">کنکور</option>
+                <option value="دانشگاه">دانشگاه</option>
+                <option value="سایر">سایر</option>
+              </select>
+              <span class="field-error">لطفاً مقطع تحصیلی را انتخاب کنید.</span>
+            </div>
+            <div class="field" id="wrap-grade">
+              <label for="f-grade">پایه تحصیلی</label>
+              <input class="input" type="text" id="f-grade" placeholder="مثلاً: دوازدهم، ترم ۴، پنجم">
+            </div>
+            <div class="field" id="wrap-major">
+              <label for="f-major">رشته تحصیلی</label>
+              <input class="input" type="text" id="f-major" placeholder="مثلاً: تجربی، ریاضی، انسانی، مهندسی کامپیوتر">
+            </div>
+            <div class="field" id="wrap-status">
+              <label for="f-status">وضعیت تحصیلی فعلی</label>
+              <input class="input" type="text" id="f-status" placeholder="مثلاً: معدل ۱۹ / داوطلب کنکور / افت در برخی دروس">
+            </div>
+            <div class="field" id="wrap-challenges">
+              <label for="f-challenges">نقاط ضعف یا چالش‌های تحصیلی</label>
+              <input class="input" type="text" id="f-challenges" placeholder="مثلاً: بی‌نظمی در مطالعه، استرس آزمون">
+            </div>
+            <div class="field is-full" id="wrap-topics">
+              <label>موضوعات موردنیاز (بر اساس مقطع انتخابی)</label>
+              <div class="topic-chips" id="topics-container"></div>
+              <span class="field-error">حداقل یک موضوع انتخاب کنید یا در کادر هدف اصلی توضیح دهید.</span>
+            </div>
+            <div class="field is-full hidden" id="wrap-otherDetails">
+              <label for="f-otherDetails">توضیح وضعیت مقطع «سایر»</label>
+              <textarea class="textarea" id="f-otherDetails" placeholder="شرایط و نیاز تحصیلی یا مهارتی خود را به‌صورت آزاد توضیح دهید..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: Additional Info & Preferences -->
+        <div class="form-step hidden" data-step="4">
+          <div class="form-grid">
+            <div class="field is-full" id="wrap-mainGoal">
+              <label for="f-mainGoal">هدف اصلی شما <span class="req">*</span></label>
+              <input class="input" type="text" id="f-mainGoal" placeholder="مثلاً: ایجاد نظم مطالعاتی، افزایش تراز آزمون، قبولی در رشته هدف">
+              <span class="field-error">لطفاً هدف اصلی خود را وارد کنید.</span>
+            </div>
+            <div class="field">
+              <label for="f-startTime">زمان موردنظر برای شروع</label>
+              <input class="input" type="text" id="f-startTime" placeholder="مثلاً: از همین هفته / اول ماه آینده">
+            </div>
+            <div class="field">
+              <label for="f-prefDays">روزهای مناسب ارتباط</label>
+              <input class="input" type="text" id="f-prefDays" placeholder="مثلاً: زوج / پنجشنبه و جمعه">
+            </div>
+            <div class="field">
+              <label for="f-prefHour">ساعت ترجیحی ارتباط</label>
+              <input class="input" type="text" id="f-prefHour" placeholder="مثلاً: ۱۶ تا ۲۰">
+            </div>
+            <div class="field">
+              <label for="f-messengerConfirm">روش ارتباطی ترجیحی</label>
+              <select class="select" id="f-messengerConfirm">
+                <option value="تلگرام">تلگرام</option>
+                <option value="روبیکا">روبیکا</option>
+              </select>
+            </div>
+
+            <!-- Consult-specific options -->
+            <div class="field is-full hidden" id="consult-prefs-block">
+              <div class="glass-card" style="padding:18px;border-radius:16px;background:rgba(7,20,38,.55)">
+                <h4 style="color:var(--gold-light);margin-bottom:14px;font-size:15px">تنظیمات روش مشاوره و مشاور</h4>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="f-consultMethod">روش مشاوره</label>
+                    <select class="select" id="f-consultMethod"></select>
+                  </div>
+                  <div class="field">
+                    <label for="f-counselorGender">جنسیت مشاور ترجیحی</label>
+                    <select class="select" id="f-counselorGender">
+                      <option value="بدون ترجیح">بدون ترجیح</option>
+                      <option value="خانم">خانم</option>
+                      <option value="آقا">آقا</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="notice-gold hidden" id="opposite-gender-notice" style="margin-top:12px"></div>
+              </div>
+            </div>
+
+            <!-- Combo Therapist option -->
+            <div class="field is-full hidden" id="combo-therapist-block">
+              <div class="glass-card glass-card-gold" style="padding:18px;border-radius:16px">
+                <label class="topic-chip" id="chip-therapist" style="width:100%;justify-content:flex-start">
+                  <input type="checkbox" id="f-useTherapist">
+                  <span><strong>همراهی با «تراپیست تحصیلی» (روان‌شناس متخصص بالینی و تحصیلی)</strong></span>
+                </label>
+                <p style="font-size:13px;line-height:1.8;color:var(--text-gray);margin-top:10px">
+                  تراپیست تحصیلی، روان‌شناس متخصص در حوزه بالینی و تحصیلی است که در کنار دانش‌آموز یا دانشجو قرار می‌گیرد تا ضمن همراهی در فرایند یادگیری و اجرای برنامه، مشکلات روانی که می‌توانند تحصیل فرد را دچار اختلال کنند نیز بررسی و حل شوند. این همراهی به‌ویژه برای دانش‌آموزان کنکوری بسیار مؤثر است.
+                </p>
+              </div>
+            </div>
+
+            <!-- Plan Free First Week option -->
+            <div class="field is-full hidden" id="plan-freeweek-block">
+              <div class="srv-subbox">
+                <label class="topic-chip" id="chip-freeweek" style="width:100%">
+                  <input type="checkbox" id="f-freeFirstWeek">
+                  <span>متقاضی استفاده از «هفته اول برنامه‌ریزی رایگان» هستم (یک‌بار برای هر کاربر)</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="field is-full">
+              <label for="f-notes">توضیحات تکمیلی</label>
+              <textarea class="textarea" id="f-notes" placeholder="هر نکته‌ای که لازم است مشاور یا برنامه‌ریز بداند..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5: Package, Pre-Invoice & Shamsi Scheduling -->
+        <div class="form-step hidden" data-step="5">
+          <div class="grid-2" style="align-items:start">
+            <div>
+              <h3 style="font-size:16px;color:var(--gold-light);margin-bottom:12px">۱. انتخاب مدت و بسته</h3>
+              <div id="package-options-list" style="display:flex;flex-direction:column;gap:10px"></div>
+
+              <h3 style="font-size:16px;color:var(--gold-light);margin:24px 0 12px">۲. پیشنهاد زمان جلسه (تقویم شمسی)</h3>
+              <div class="jcal-wrap" id="jalali-picker"></div>
+              <div class="form-grid" style="margin-top:12px">
+                <div class="field">
+                  <label for="f-shamsiDate">تاریخ پیشنهادی شمسی</label>
+                  <input class="input" type="text" id="f-shamsiDate" readonly placeholder="از تقویم بالا انتخاب کنید">
+                </div>
+                <div class="field">
+                  <label for="f-suggestHour">ساعت پیشنهادی</label>
+                  <input class="input" type="text" id="f-suggestHour" placeholder="مثلاً: ۱۷:۳۰">
+                </div>
+                <div class="field is-full">
+                  <label for="f-altDays">روزهای جایگزین</label>
+                  <input class="input" type="text" id="f-altDays" placeholder="مثلاً: سه‌شنبه یا پنجشنبه همان هفته">
+                </div>
+                <div class="field is-full">
+                  <label for="f-scheduleNotes">توضیحات زمان‌بندی</label>
+                  <input class="input" type="text" id="f-scheduleNotes" placeholder="مثلاً: بعد از ساعت مدرسه">
+                </div>
+              </div>
+              <div class="notice-gold" style="margin-top:12px">
+                زمان انتخابی شما به‌عنوان درخواست ثبت می‌شود. نهایی شدن جلسه پس از بررسی و تأیید پشتیبانی راهنکس اعلام خواهد شد.
+              </div>
+            </div>
+
+            <!-- Live Glass Pre-Invoice Card -->
+            <div class="invoice-box" id="preinvoice-card">
+              <h3 style="font-size:17px;color:var(--gold-light);margin-bottom:14px">پیش‌فاکتور انتخابی شما</h3>
+              <div id="preinvoice-rows"></div>
+              <p style="font-size:12.5px;color:var(--sub);margin-top:14px;line-height:1.7">
+                هیچ پرداخت آنلاین یا دریافت اطلاعات کارت بانکی در سایت انجام نمی‌شود. پس از ارسال خلاصه درخواست به پشتیبانی، هماهنگی نهایی انجام خواهد شد.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6: Copyable Invoice & Messenger Handoff -->
+        <div class="form-step hidden" data-step="6">
+          <div style="margin-bottom:18px">
+            <span class="sec-kicker">گام نهایی</span>
+            <h3 class="sec-title" style="font-size:24px;margin-bottom:8px">درخواست شما آماده ارسال است.</h3>
+            <p class="sec-desc">
+              تمام اطلاعات موردنیاز ثبت درخواست شما در یک فاکتور ساختاریافته آماده شده است. برای نهایی‌سازی، کافی است آن را کپی و از طریق یکی از راه‌های ارتباطی راهنکس برای پشتیبانی ارسال کنید.
+            </p>
+          </div>
+
+          <div class="field">
+            <label for="f-invoiceText">متن فاکتور ساختاریافته (قابل مشاهده و ویرایش پیش از کپی)</label>
+            <textarea class="invoice-raw" id="f-invoiceText" spellcheck="false"></textarea>
+          </div>
+
+          <div class="srv-subbox" style="margin-top:14px">
+            <label class="topic-chip" id="chip-consent" style="width:100%">
+              <input type="checkbox" id="f-consent">
+              <span>تأیید می‌کنم اطلاعات فاکتور را بررسی کرده و با آگاهی کامل برای پشتیبانی راهنکس ارسال می‌کنم.</span>
+            </label>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px">
+            <button type="button" class="btn-gold" id="btn-copy-invoice">کپی کامل فاکتور</button>
+            <button type="button" class="btn-ghost" id="btn-download-invoice">دانلود فاکتور به‌صورت TXT</button>
+            <button type="button" class="btn-ghost" id="btn-choose-messenger">ادامه و انتخاب راه ارتباطی (تلگرام یا روبیکا)</button>
+            <button type="button" class="btn-ghost" id="btn-edit-info">ویرایش اطلاعات</button>
+            <button type="button" class="btn-ghost" id="btn-new-request">شروع درخواست جدید</button>
+          </div>
+
+          <!-- Messenger Selection & Send Guide Panel -->
+          <div class="glass-card glass-card-gold hidden" id="messenger-handoff" style="margin-top:22px;padding:22px">
+            <h4 style="font-size:17px;color:var(--gold-light);margin-bottom:8px">انتخاب راه ارتباطی و ارسال به پشتیبانی</h4>
+            <p class="sec-desc" id="handoff-guide-text" style="font-size:14px;margin-bottom:16px">
+              فاکتور شما کپی شد. لطفاً فاکتور کپی‌شده را در چت پشتیبانی Paste کرده و ارسال کنید. تیم پشتیبانی راهنکس در اسرع وقت به درخواست شما پاسخ خواهد داد.
+            </p>
+
+            <div class="seg-tabs" role="tablist" aria-label="انتخاب پیام‌رسان">
+              <button type="button" class="seg-tab is-active" data-handoff-tab="telegram">تلگرام</button>
+              <button type="button" class="seg-tab" data-handoff-tab="rubika">روبیکا</button>
+            </div>
+
+            <div id="handoff-telegram" class="srv-subbox">
+              <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+                <a class="btn-gold" href="https://t.me/Zarinxam_rahnext" target="_blank" rel="noopener noreferrer" id="link-tg-dm">باز کردن پیوی تلگرام پشتیبانی</a>
+                <button type="button" class="btn-ghost" data-copy-id="@Zarinxam_rahnext">کپی آیدی تلگرام: @Zarinxam_rahnext</button>
+              </div>
+            </div>
+
+            <div id="handoff-rubika" class="srv-subbox hidden">
+              <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+                <a class="btn-gold" href="https://rubika.ir/Zarinxam_rahnext" target="_blank" rel="noopener noreferrer" id="link-rb-dm">باز کردن پیوی روبیکا پشتیبانی</a>
+                <button type="button" class="btn-ghost" data-copy-id="@Zarinxam_rahnext">کپی آیدی روبیکا: @Zarinxam_rahnext</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inline Confirm Bar (replaces window.confirm cleanly) -->
+        <div class="inline-confirm" id="inline-confirm">
+          <span id="inline-confirm-msg">آیا مطمئن هستید که می‌خواهید اطلاعات ذخیره‌شده پاک شوند؟</span>
+          <div style="display:flex;gap:8px">
+            <button type="button" class="btn-gold" id="inline-confirm-yes" style="min-height:36px;padding:6px 14px">بله، پاک شود</button>
+            <button type="button" class="btn-ghost" id="inline-confirm-no" style="min-height:36px;padding:6px 14px">انصراف</button>
+          </div>
+        </div>
+
+        <!-- Persistent Form Bottom Bar -->
+        <div class="form-actions">
+          <div class="form-actions-group">
+            <button type="button" class="btn-ghost" id="btn-prev-step">مرحله قبل</button>
+            <button type="button" class="btn-gold" id="btn-next-step">مرحله بعد</button>
+          </div>
+          <div class="form-actions-group">
+            <button type="button" class="btn-ghost" id="btn-save-later">ذخیره و ادامه بعداً</button>
+            <button type="button" class="btn-ghost" id="btn-cancel-request">لغو ثبت درخواست</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer inside Form view too -->
+      <footer class="sub-footer">
+        <div class="sub-footer-grid">
+          <div>
+            <strong style="font-family:'Sora',sans-serif;letter-spacing:.12em">RAHNEXT</strong>
+            <p class="sec-desc" style="font-size:13.5px;margin-top:6px">«همیشه یه راه دیگه‌ای هم هست!»</p>
+            <p style="font-size:13px;color:var(--gold-light);margin-top:8px">طراحی و مدیریت: BABAEI</p>
+          </div>
+          <div>
+            <h4>راه‌های ارتباطی</h4>
+            <ul>
+              <li>تلگرام: <a href="https://t.me/Zarinxam_rahnext" target="_blank" rel="noopener noreferrer" dir="ltr">@Zarinxam_rahnext</a></li>
+              <li>روبیکا: <a href="https://rubika.ir/Zarinxam_rahnext" target="_blank" rel="noopener noreferrer" dir="ltr">@Zarinxam_rahnext</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>حریم خصوصی و داده‌های مرورگر</h4>
+            <p style="font-size:13px;color:var(--text-gray);line-height:1.7">اطلاعات شما فقط در مرورگر خودتان ذخیره می‌شود و بدون اقدام آگاهانه شما ارسال نمی‌گردد.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* (a) Video & Reduced Motion sync */
+(function(){
+  var q=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)'),
+      v=document.querySelector('video.art');
+  if(!q||!v)return;
+  function sync(){
+    if(q.matches){v.pause();}
+    else{var p=v.play();if(p)p.catch(function(){});}
+  }
+  sync();
+  q.addEventListener?q.addEventListener('change',sync):q.addListener(sync);
+})();
+
+/* (b) Entrance sequence retirement */
+(function(){
+  var root=document.documentElement,f=document.getElementById('foot2');
+  var timer=setTimeout(done,4000);
+  function done(){
+    clearTimeout(timer);
+    if(f)f.removeEventListener('animationend',done);
+    root.classList.add('is-entered');
+  }
+  if(f)f.addEventListener('animationend',done,{once:true});
+})();
+
+/* (c) Rahnext Application Logic: Centralized Pricing, Router, 6-Step Form, Jalali Picker, Invoice, FAQ, localStorage */
+(function(){
+  'use strict';
+
+  var STORAGE_KEY='rahnext_form_data';
+
+  /* Centralized Pricing Configuration */
+  var PRICING={
+    consult:{
+      standard:{base:250000,label:'Standard | مشاوره متنی'},
+      plus:{base:350000,label:'Plus | مشاوره ویسی'},
+      premium:{base:450000,label:'Premium | مشاوره تماس صوتی'}
+    },
+    consultOppositeExtra:50000,
+    bundles:{
+      plus:{
+        '1m':{sessions:4,price:850000,priceOpp:950000,label:'یک‌ماهه'},
+        '3m':{sessions:12,price:1500000,priceOpp:1700000,label:'سه‌ماهه'},
+        '6m':{sessions:24,price:2500000,priceOpp:2700000,label:'شش‌ماهه'},
+        '1y':{sessions:50,price:4500000,priceOpp:4700000,label:'طلایی یک‌ساله (۴۸+۲ جلسه هدیه)'}
+      },
+      premium:{
+        '1m':{sessions:4,price:1350000,priceOpp:1450000,label:'یک‌ماهه'},
+        '3m':{sessions:12,price:2000000,priceOpp:2200000,label:'سه‌ماهه'},
+        '6m':{sessions:24,price:3000000,priceOpp:3200000,label:'شش‌ماهه'},
+        '1y':{sessions:50,price:5000000,priceOpp:5200000,label:'طلایی یک‌ساله (۴۸+۲ جلسه هدیه)'}
+      }
+    },
+    plan:{
+      weekly:{base:50000,off:5,final:47500,label:'هفتگی'},
+      monthly:{base:150000,off:10,final:135000,label:'ماهانه'},
+      '3m':{base:250000,off:15,final:212500,label:'سه‌ماهه'},
+      '6m':{base:466667,off:25,final:350000,label:'شش‌ماهه'},
+      '1y':{base:900000,off:50,final:450000,label:'یک‌ساله'}
+    },
+    comboOppositeExtra:100000,
+    planPeriodMap:{'1m':'monthly','3m':'3m','6m':'6m','1y':'1y'}
+  };
+
+  var TOPICS_BY_LEVEL={
+    'ابتدایی':['مشکلات یادگیری','بی‌انگیزگی','تمرکز','عادت مطالعه','سازگاری با مدرسه','ارتباط والدین و فرزند در مسائل تحصیلی'],
+    'متوسطه اول':['افت تحصیلی','مدیریت زمان','روش مطالعه','کشف استعداد','برنامه‌ریزی','تمرکز','انگیزه'],
+    'متوسطه دوم':['انتخاب رشته','برنامه‌ریزی','افت تحصیلی','استرس امتحانات','روش یادگیری','آمادگی کنکور'],
+    'کنکور':['برنامه‌ریزی کنکور','تحلیل آزمون','مدیریت اضطراب','رفع نقاط ضعف','انتخاب رشته','پیگیری عملکرد'],
+    'دانشگاه':['برنامه‌ریزی درسی','انگیزه','مدیریت زمان','روش مطالعه دانشگاهی','مسیر تحصیلی و شغلی']
+  };
+  var ALL_TOPICS=(function(){
+    var seen={},out=[];
+    Object.keys(TOPICS_BY_LEVEL).forEach(function(k){
+      TOPICS_BY_LEVEL[k].forEach(function(t){if(!seen[t]){seen[t]=1;out.push(t);}});
+    });
+    return out;
+  })();
+
+  var FAQS=[
+    {q:'۱. آیا اولین جلسه واقعاً رایگان است؟',a:'بله، جلسه اول مشاوره آشنایی به‌صورت کاملاً رایگان ارائه می‌شود تا بدون پرداخت هزینه اولیه، شرایط خود را بررسی کرده و با شیوه کار راهنکس آشنا شوید.'},
+    {q:'۲. جلسه رایگان چقدر طول می‌کشد؟',a:'مدت جلسه آشنایی رایگان ۴۵ دقیقه است و به‌صورت ارتباط اولیه متنی با امکان استفاده محدود از پیام صوتی برگزار می‌شود.'},
+    {q:'۳. تفاوت Standard، Plus و Premium چیست؟',a:'هر جلسه در هر سه روش ۷۵ دقیقه است؛ Standard ارتباط متنی در چت، Plus تبادل پیام‌های صوتی و متنی و Premium تماس صوتی زنده از طریق بستر ارتباطی توافق‌شده است.'},
+    {q:'۴. آیا امکان استفاده از برنامه‌ریزی بدون مشاوره وجود دارد؟',a:'بله، خدمت «برنامه‌ریزی تحصیلی اختصاصی» به‌صورت مستقل و در دوره‌های هفتگی، ماهانه، سه‌ماهه، شش‌ماهه و یک‌ساله قابل انتخاب است.'},
+    {q:'۵. برنامه تحصیلی چگونه تنظیم می‌شود؟',a:'پس از دریافت اطلاعات اولیه، شناخت سطح درسی، ظرفیت زمانی و هدف شما، برنامه اختصاصی متناسب با شرایط فردیتان طراحی می‌شود.'},
+    {q:'۶. آیا برنامه در طول دوره قابل تغییر است؟',a:'بله، برنامه‌های راهنکس ایستا نیستند و بر اساس گزارش‌های هفتگی و شرایط جدید شما در طول دوره اصلاح و به‌روزرسانی می‌شوند.'},
+    {q:'۷. گزارش هفتگی چگونه انجام می‌شود؟',a:'در پایان هر هفته، گزارش اجرای برنامه شما توسط تیم راهنکس دریافت و بررسی می‌شود و در صورت وجود مانع، راهنمایی لازم ارائه می‌گردد.'},
+    {q:'۸. آیا نمودار پیشرفت ارسال می‌شود؟',a:'بله، نمودار پیشرفت منحصراً بر اساس داده‌ها و گزارش‌های واقعی ثبت‌شده توسط خود شما تهیه و ارسال می‌شود.'},
+    {q:'۹. تفاوت مشاوره همراه برنامه‌ریزی با برنامه‌ریزی مستقل چیست؟',a:'در برنامه‌ریزی مستقل تمرکز روی طراحی برنامه، گزارش هفتگی و اصلاح آن است؛ اما در مدل ترکیبی، علاوه بر برنامه اختصاصی، جلسات مشاوره مستمر و امکان همراهی تراپیست تحصیلی نیز وجود دارد.'},
+    {q:'۱۰. تراپیست تحصیلی چه وظیفه‌ای دارد؟',a:'تراپیست تحصیلی روان‌شناس متخصص بالینی و تحصیلی است که ضمن همراهی در فرایند یادگیری و اجرای برنامه، موانع روانی مانند اضطراب، استرس و بی‌انگیزگی را به‌صورت تخصصی بررسی و برطرف می‌کند.'},
+    {q:'۱۱. چگونه زمان جلسه را رزرو کنم؟',a:'در مرحله پنجم فرم ثبت‌نام، می‌توانید تاریخ پیشنهادی خود را از تقویم شمسی همراه با ساعت و روزهای جایگزین ثبت کنید. زمان قطعی پس از تأیید پشتیبانی اعلام می‌شود.'},
+    {q:'۱۲. پس از تکمیل فرم چه کاری باید انجام دهم؟',a:'کافی است فاکتور تولیدشده را کپی کرده (یا به‌صورت TXT دانلود کنید) و از طریق تلگرام یا روبیکا برای پشتیبانی راهنکس با آیدی @Zarinxam_rahnext ارسال نمایید.'},
+    {q:'۱۳. آیا پرداخت در سایت انجام می‌شود؟',a:'خیر، در نسخه فعلی هیچ پرداخت آنلاین یا دریافت اطلاعات کارت بانکی در سایت وجود ندارد و هماهنگی نهایی از طریق پشتیبانی انجام می‌شود.'},
+    {q:'۱۴. چگونه با پشتیبانی ارتباط بگیرم؟',a:'ارتباط با پشتیبانی منحصراً از طریق تلگرام یا روبیکا با آیدی @Zarinxam_rahnext انجام می‌شود.'}
+  ];
+
+  /* Lightweight Gregorian <-> Jalali Converter */
+  function toJalaali(gy,gm,gd){
+    var g_d_m=[0,31,59,90,120,151,181,212,243,273,304,334];
+    var gy2=(gm>2)?(gy+1):gy;
+    var days=355666+(365*gy)+Math.floor((gy2+3)/4)-Math.floor((gy2+99)/100)+Math.floor((gy2+399)/400)+gd+g_d_m[gm-1];
+    var jy=-1595+(33*Math.floor(days/12053));
+    days%=12053;
+    jy+=4*Math.floor(days/1461);
+    days%=1461;
+    if(days>365){jy+=Math.floor((days-1)/365);days=(days-1)%365;}
+    var jm=(days<186)?1+Math.floor(days/31):7+Math.floor((days-186)/30);
+    var jd=1+((days<186)?(days%31):((days-186)%30));
+    return {jy:jy,jm:jm,jd:jd};
+  }
+  function isJalaliLeap(jy){
+    var breaks=[-61,9,38,199,426,686,756,818,1111,1181,1210,1635,2060,2097,2192,2262,2324,2394,2456,3178];
+    var bl=breaks.length,gy=jy+621,leapJ=-14,jp=breaks[0],jm,jump,leap,n,i;
+    for(i=1;i<bl;i++){jm=breaks[i];jump=jm-jp;if(jy<jm)break;leapJ+=Math.floor(jump/33)*8+Math.floor((jump%33)/4);jp=jm;}
+    n=jy-jp;leapJ+=Math.floor(n/33)*8+Math.floor(((n%33)+3)/4);
+    if((jump%33)===4&&(jump-n)===4)leapJ++;
+    var leapG=Math.floor(gy/4)-Math.floor((Math.floor(gy/100)+1)*3/4)-150;
+    var march=20+leapJ-leapG;
+    if(jump-n<6)n=n-jump+Math.floor((jump+4)/33)*33;
+    leap=((((n+1)%33)-1)%4);if(leap===-1)leap=4;
+    return leap===0;
+  }
+  function jalaliMonthLen(jy,jm){
+    if(jm<=6)return 31;
+    if(jm<=11)return 30;
+    return isJalaliLeap(jy)?30:29;
+  }
+  function jalaliToGregorian(jy,jm,jd){
+    jy+=1595;
+    var days=-355668+(365*jy)+(Math.floor(jy/33)*8)+Math.floor(((jy%33)+3)/4)+jd+(jm<7?(jm-1)*31:((jm-7)*30)+186);
+    var gy=400*Math.floor(days/146097);
+    days%=146097;
+    if(days>36524){gy+=100*Math.floor(--days/36524);days%=36524;if(days>=365)days++;}
+    gy+=4*Math.floor(days/1461);
+    days%=1461;
+    if(days>365){gy+=Math.floor((days-1)/365);days=(days-1)%365;}
+    var gd=days+1;
+    var sal_a=[0,31,(gy%4===0&&gy%100!==0)||(gy%400===0)?29:28,31,30,31,30,31,31,30,31,30,31];
+    var gm=1;while(gm<=12&&gd>sal_a[gm]){gd-=sal_a[gm];gm++;}
+    return new Date(gy,gm-1,gd);
+  }
+  var J_MONTHS=['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
+  var J_WEEKDAYS=['ش','ی','د','س','چ','پ','ج'];
+
+  function pad2(n){return n<10?'0'+n:''+n;}
+  function fmtNum(n){return Number(n).toLocaleString('fa-IR');}
+  function fmtToman(n){return fmtNum(n)+' تومان';}
+  function genCode(){
+    var chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',s='';
+    for(var i=0;i<6;i++)s+=chars[Math.floor(Math.random()*chars.length)];
+    return 'RHX-2026-'+s;
+  }
+
+  function defaultState(){
+    var now=new Date();
+    var tj=toJalaali(now.getFullYear(),now.getMonth()+1,now.getDate());
+    return {
+      step:1,
+      code:genCode(),
+      serviceType:'',
+      isIntroFree:false,
+      fullName:'',
+      ageOrDob:'',
+      userGender:'',
+      phone:'',
+      preferredMessenger:'تلگرام',
+      level:'',
+      grade:'',
+      major:'',
+      status:'',
+      challenges:'',
+      topics:[],
+      otherDetails:'',
+      mainGoal:'',
+      startTime:'',
+      prefDays:'',
+      prefHour:'',
+      consultMethod:'plus',
+      counselorGender:'بدون ترجیح',
+      useTherapist:false,
+      freeFirstWeek:false,
+      notes:'',
+      packageKey:'1m',
+      shamsiDate:tj.jy+'/'+pad2(tj.jm)+'/'+pad2(tj.jd),
+      suggestHour:'',
+      altDays:'',
+      scheduleNotes:'',
+      consent:false,
+      calYear:tj.jy,
+      calMonth:tj.jm
+    };
+  }
+
+  var state=defaultState();
+  var confirmCallback=null;
+
+  function loadState(){
+    try{
+      var raw=localStorage.getItem(STORAGE_KEY);
+      if(!raw)return;
+      var parsed=JSON.parse(raw);
+      if(parsed&&typeof parsed==='object'){
+        Object.keys(state).forEach(function(k){
+          if(parsed[k]!==undefined)state[k]=parsed[k];
+        });
+      }
+    }catch(e){}
+  }
+  function saveState(){
+    try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}catch(e){}
+  }
+
+  function toast(msg){
+    var el=document.getElementById('toast');
+    if(!el)return;
+    el.textContent=msg;
+    el.classList.add('is-show');
+    clearTimeout(toast._t);
+    toast._t=setTimeout(function(){el.classList.remove('is-show');},2800);
+  }
+
+  /* Navigation & Routing */
+  function openRoute(route,secId){
+    var navChk=document.getElementById('nav-open');
+    if(navChk)navChk.checked=false;
+    var subChk=document.getElementById('sub-nav-open');
+    if(subChk)subChk.checked=false;
+
+    var root=document.documentElement;
+    var pOverview=document.getElementById('page-overview');
+    var pForm=document.getElementById('page-form');
+    var shell=document.getElementById('subshell');
+
+    if(route==='home'){
+      root.classList.remove('is-subpage');
+      pOverview.classList.remove('is-active');
+      pForm.classList.remove('is-active');
+      if(location.hash&&location.hash!=='#home')history.replaceState(null,'','#home');
+      return;
+    }
+
+    root.classList.add('is-subpage');
+    if(route==='form'){
+      pOverview.classList.remove('is-active');
+      pForm.classList.add('is-active');
+      renderStepper();
+      showStep(state.step||1);
+      if(shell)shell.scrollTo({top:0,behavior:'smooth'});
+    }else{
+      pForm.classList.remove('is-active');
+      pOverview.classList.add('is-active');
+      if(secId){
+        setTimeout(function(){
+          var target=document.getElementById(secId);
+          if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+        },60);
+      }else if(shell){
+        shell.scrollTo({top:0,behavior:'smooth'});
+      }
+    }
+  }
+
+  /* Dynamic Pricing Calculation Engine */
+  function isOppositeGender(){
+    return (state.userGender==='خانم'&&state.counselorGender==='آقا')||(state.userGender==='آقا'&&state.counselorGender==='خانم');
+  }
+  function getComboPrice(method,period,opp){
+    var b=PRICING.bundles[method]&&PRICING.bundles[method][period];
+    var pKey=PRICING.planPeriodMap[period];
+    if(!b||!pKey)return null;
+    var halfPlan=Math.round(PRICING.plan[pKey].final*0.5);
+    var extra=opp?PRICING.comboOppositeExtra:0;
+    return {
+      sessions:b.sessions,
+      label:b.label,
+      consultPart:b.price,
+      planHalf:halfPlan,
+      planOrig:PRICING.plan[pKey].base,
+      extra:extra,
+      final:b.price+halfPlan+extra
+    };
+  }
+  function computeSummary(){
+    var opp=isOppositeGender();
+    var svc=state.serviceType||'consult';
+    var res={
+      serviceLabel:'',methodLabel:'—',periodLabel:'—',sessionsText:'—',
+      features:[],counselorGender:state.counselorGender||'بدون ترجیح',
+      basePrice:0,discountText:'—',extraCost:0,finalPrice:0
+    };
+
+    if(svc==='consult'){
+      res.serviceLabel='مشاوره تخصصی آنلاین';
+      var m=state.consultMethod||'plus';
+      if(m==='standard'||state.packageKey==='single'){
+        var base=PRICING.consult[m].base;
+        var extra=opp?PRICING.consultOppositeExtra:0;
+        res.methodLabel=PRICING.consult[m].label;
+        res.periodLabel='جلسه تکی (۷۵ دقیقه)';
+        res.sessionsText='۱ جلسه';
+        res.features=['۷۵ دقیقه مشاوره تخصصی'];
+        res.basePrice=base;
+        res.extraCost=extra;
+        res.finalPrice=base+extra;
+      }else{
+        var b=PRICING.bundles[m][state.packageKey]||PRICING.bundles[m]['1m'];
+        res.methodLabel=PRICING.consult[m].label;
+        res.periodLabel=b.label;
+        res.sessionsText=fmtNum(b.sessions)+' جلسه (هر جلسه ۷۵ دقیقه)';
+        res.features=[b.sessions===50?'۴۸ جلسه اصلی + ۲ جلسه هدیه رایگان':'پیگیری مستمر در طول دوره'];
+        res.basePrice=b.price;
+        res.extraCost=opp?(b.priceOpp-b.price):0;
+        res.finalPrice=opp?b.priceOpp:b.price;
+      }
+    }else if(svc==='plan'){
+      res.serviceLabel='برنامه‌ریزی تحصیلی اختصاصی';
+      var pk=PRICING.plan[state.packageKey]?state.packageKey:'monthly';
+      var pl=PRICING.plan[pk];
+      res.methodLabel='برنامه‌ریزی اختصاصی';
+      res.periodLabel=pl.label;
+      res.sessionsText='برنامه اختصاصی + گزارش هفتگی';
+      res.counselorGender='—';
+      res.features=['برنامه شخصی‌سازی‌شده','گزارش هفتگی و اصلاح برنامه','نمودار پیشرفت واقعی'];
+      if(state.freeFirstWeek)res.features.push('هفته اول برنامه‌ریزی رایگان');
+      res.basePrice=pl.base;
+      res.discountText=fmtNum(pl.off)+'٪ تخفیف ('+fmtToman(pl.base-pl.final)+')';
+      res.finalPrice=pl.final;
+    }else if(svc==='combo'){
+      res.serviceLabel='مشاوره همراه با برنامه‌ریزی';
+      var cm=(state.consultMethod==='premium')?'premium':'plus';
+      var cp=PRICING.bundles[cm][state.packageKey]?state.packageKey:'1m';
+      var calc=getComboPrice(cm,cp,opp);
+      res.methodLabel=PRICING.consult[cm].label;
+      res.periodLabel=calc.label;
+      res.sessionsText=fmtNum(calc.sessions)+' جلسه + برنامه اختصاصی';
+      res.features=['برنامه تحصیلی اختصاصی (با ۵۰٪ تخفیف ترکیبی)','جلسات مشاوره و گزارش پیشرفت'];
+      if(state.useTherapist)res.features.push('همراهی تراپیست تحصیلی (روان‌شناس بالینی و تحصیلی)');
+      res.basePrice=calc.consultPart+calc.planHalf;
+      res.discountText='۵۰٪ تخفیف بخش برنامه‌ریزی در مدل ترکیبی';
+      res.extraCost=calc.extra;
+      res.finalPrice=calc.final;
+    }
+
+    if(state.isIntroFree){
+      res.features.unshift('درخواست جلسه آشنایی رایگان (۴۵ دقیقه)');
+    }
+    return res;
+  }
+
+  /* Render Pricing Showcase on Overview Page */
+  function renderPricingShowcase(tab){
+    var host=document.getElementById('pricing-showcase-content');
+    if(!host)return;
+    var html='';
+    if(tab==='consult'){
+      html+='<h3 style="font-size:16px;color:var(--gold-light);margin-bottom:12px">الف) جلسات تکی مشاوره (۷۵ دقیقه)</h3>';
+      html+='<div class="price-grid" style="margin-bottom:26px">';
+      ['standard','plus','premium'].forEach(function(k){
+        var item=PRICING.consult[k];
+        html+='<div class="price-card"><div><div style="font-weight:600;color:var(--glass-white);margin-bottom:6px">'+item.label+'</div>'+
+          '<div class="price-final">'+fmtToman(item.base)+'</div>'+
+          '<div class="price-meta">با انتخاب جنسیت مخالف: '+fmtToman(item.base+PRICING.consultOppositeExtra)+'</div></div>'+
+          '<button type="button" class="btn-ghost" data-quick-consult="'+k+'" data-quick-pkg="single">انتخاب جلسه تکی</button></div>';
+      });
+      html+='</div>';
+
+      ['plus','premium'].forEach(function(m){
+        html+='<h3 style="font-size:16px;color:var(--gold-light);margin:18px 0 12px">بسته‌های مشاوره '+(m==='plus'?'Plus (ویسی)':'Premium (تماس صوتی)')+'</h3>';
+        html+='<div class="price-grid" style="margin-bottom:20px">';
+        Object.keys(PRICING.bundles[m]).forEach(function(pk){
+          var b=PRICING.bundles[m][pk];
+          html+='<div class="price-card'+(pk==='1y'?' is-featured':'')+'"><div>'+
+            '<div style="font-weight:600;color:var(--glass-white)">'+b.label+'</div>'+
+            '<div class="price-meta">'+fmtNum(b.sessions)+' جلسه ۷۵ دقیقه‌ای</div>'+
+            '<div class="price-final" style="margin-top:8px">'+fmtToman(b.price)+'</div>'+
+            '<div class="price-meta">با جنسیت مخالف: '+fmtToman(b.priceOpp)+'</div></div>'+
+            '<button type="button" class="btn-gold" data-quick-consult="'+m+'" data-quick-pkg="'+pk+'">انتخاب بسته</button></div>';
+        });
+        html+='</div>';
+      });
+    }else if(tab==='plan'){
+      html+='<div class="notice-gold" style="margin-bottom:16px">هفته اول برنامه‌ریزی رایگان (یک‌بار برای هر کاربر) — تعرفه بسته هفتگی برای تمدید یا پس از دوره آزمایشی است.</div>';
+      html+='<div class="price-grid">';
+      Object.keys(PRICING.plan).forEach(function(pk){
+        var p=PRICING.plan[pk];
+        html+='<div class="price-card'+(pk==='1y'||pk==='6m'?' is-featured':'')+'"><div>'+
+          '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><strong style="color:var(--glass-white)">برنامه '+p.label+'</strong><span class="price-off">'+fmtNum(p.off)+'٪ تخفیف</span></div>'+
+          '<div class="price-old">'+fmtToman(p.base)+'</div>'+
+          '<div class="price-final" style="margin-top:4px">'+fmtToman(p.final)+'</div>'+
+          '<div class="price-meta" style="margin-top:6px">شامل گزارش هفتگی، اصلاح برنامه و نمودار پیشرفت واقعی</div></div>'+
+          '<button type="button" class="btn-gold" data-quick-plan="'+pk+'">انتخاب این دوره</button></div>';
+      });
+      html+='</div>';
+    }else if(tab==='combo'){
+      html+='<div class="notice-gold" style="margin-bottom:16px">فرمول ترکیبی: قیمت بسته مشاوره + ۵۰٪ قیمت نهایی بسته برنامه‌ریزی. در صورت انتخاب جنسیت مخالف، ۱۰۰,۰۰۰ تومان اضافه می‌شود.</div>';
+      ['plus','premium'].forEach(function(m){
+        html+='<h3 style="font-size:16px;color:var(--gold-light);margin:14px 0 12px">پکیج ترکیبی '+(m==='plus'?'Plus همراه برنامه‌ریزی':'Premium همراه برنامه‌ریزی')+'</h3>';
+        html+='<div class="price-grid" style="margin-bottom:20px">';
+        ['1m','3m','6m','1y'].forEach(function(pk){
+          var c=getComboPrice(m,pk,false);
+          var cOpp=getComboPrice(m,pk,true);
+          html+='<div class="price-card'+(pk==='1y'?' is-featured':'')+'"><div>'+
+            '<div style="font-weight:600;color:var(--glass-white)">'+c.label+'</div>'+
+            '<div class="price-meta">'+fmtNum(c.sessions)+' جلسه + برنامه اختصاصی</div>'+
+            '<div class="price-final" style="margin-top:8px">'+fmtToman(c.final)+'</div>'+
+            '<div class="price-meta">با جنسیت مخالف: '+fmtToman(cOpp.final)+'</div></div>'+
+            '<button type="button" class="btn-gold" data-quick-combo="'+m+'" data-quick-pkg="'+pk+'">انتخاب پکیج ترکیبی</button></div>';
+        });
+        html+='</div>';
+      });
+    }
+    host.innerHTML=html;
+  }
+
+  /* Render FAQ Accordion */
+  function renderFAQ(){
+    var host=document.getElementById('faq-list');
+    if(!host)return;
+    host.innerHTML=FAQS.map(function(item,idx){
+      return '<div class="faq-item" data-faq="'+idx+'">'+
+        '<button type="button" class="faq-q" aria-expanded="false">'+
+          '<span>'+item.q+'</span>'+
+          '<svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>'+
+        '</button>'+
+        '<div class="faq-a">'+item.a+'</div>'+
+      '</div>';
+    }).join('');
+  }
+
+  /* Stepper & Form UI */
+  var STEP_LABELS=['نوع خدمت','اطلاعات فردی','اطلاعات تحصیلی','اطلاعات تکمیلی','تعرفه و رزرو','فاکتور نهایی'];
+  function renderStepper(){
+    var host=document.getElementById('form-stepper');
+    if(!host)return;
+    host.innerHTML=STEP_LABELS.map(function(lbl,i){
+      var s=i+1;
+      var cls='step-dot'+(s===state.step?' is-current':(s<state.step?' is-done':''));
+      return '<button type="button" class="'+cls+'" data-jump-step="'+s+'"'+(s===state.step?' aria-current="step"':'')+'>'+
+        '<span class="num">'+fmtNum(s)+'</span><span>'+lbl+'</span></button>';
+    }).join('');
+  }
+
+  function renderTopics(){
+    var host=document.getElementById('topics-container');
+    var otherWrap=document.getElementById('wrap-otherDetails');
+    if(!host)return;
+    var lvl=state.level;
+    var list=lvl==='سایر'?ALL_TOPICS:(TOPICS_BY_LEVEL[lvl]||ALL_TOPICS);
+    if(otherWrap)otherWrap.classList.toggle('hidden',lvl!=='سایر');
+
+    host.innerHTML=list.map(function(t){
+      var checked=state.topics.indexOf(t)!==-1;
+      return '<label class="topic-chip'+(checked?' is-selected':'')+'">'+
+        '<input type="checkbox" value="'+t+'"'+(checked?' checked':'')+'>'+
+        '<span>'+t+'</span></label>';
+    }).join('');
+  }
+
+  function syncConditionalBlocks(){
+    var svc=state.serviceType||'consult';
+    var isConsult=svc==='consult'||svc==='combo';
+    var consultBlock=document.getElementById('consult-prefs-block');
+    var comboBlock=document.getElementById('combo-therapist-block');
+    var planBlock=document.getElementById('plan-freeweek-block');
+    var methodSel=document.getElementById('f-consultMethod');
+    var oppNotice=document.getElementById('opposite-gender-notice');
+
+    if(consultBlock)consultBlock.classList.toggle('hidden',!isConsult);
+    if(comboBlock)comboBlock.classList.toggle('hidden',svc!=='combo');
+    if(planBlock)planBlock.classList.toggle('hidden',svc!=='plan');
+
+    if(methodSel){
+      var opts=[];
+      if(svc==='consult')opts.push({v:'standard',t:'Standard | مشاوره متنی (تک‌جلسه)'});
+      opts.push({v:'plus',t:'Plus | مشاوره ویسی'});
+      opts.push({v:'premium',t:'Premium | مشاوره تماس صوتی'});
+      if(svc==='combo'&&state.consultMethod==='standard')state.consultMethod='plus';
+      methodSel.innerHTML=opts.map(function(o){
+        return '<option value="'+o.v+'"'+(state.consultMethod===o.v?' selected':'')+'>'+o.t+'</option>';
+      }).join('');
+    }
+
+    if(oppNotice){
+      if(isConsult&&isOppositeGender()){
+        var extraText=(svc==='combo')
+          ?'توجه: به‌دلیل انتخاب مشاور با جنسیت مخالف در پکیج ترکیبی، مبلغ ۱۰۰,۰۰۰ تومان به قیمت بسته اضافه می‌شود.'
+          :'توجه: به‌دلیل انتخاب مشاور با جنسیت مخالف، ۵۰,۰۰۰ تومان به هر جلسه (یا مابه‌تفاوت بسته طبق جدول) اضافه می‌شود.';
+        oppNotice.textContent=extraText;
+        oppNotice.classList.remove('hidden');
+      }else{
+        oppNotice.classList.add('hidden');
+      }
+    }
+  }
+
+  function renderPackagesStep(){
+    var host=document.getElementById('package-options-list');
+    if(!host)return;
+    var svc=state.serviceType||'consult';
+    var opp=isOppositeGender();
+    var html='';
+
+    if(svc==='plan'){
+      if(!PRICING.plan[state.packageKey])state.packageKey='monthly';
+      html=Object.keys(PRICING.plan).map(function(pk){
+        var p=PRICING.plan[pk];
+        var sel=state.packageKey===pk;
+        return '<label class="choice-card'+(sel?' is-selected':'')+'" data-pkg-key="'+pk+'">'+
+          '<input type="radio" name="packageKey" value="'+pk+'"'+(sel?' checked':'')+'>'+
+          '<div style="display:flex;justify-content:space-between;align-items:center">'+
+            '<span class="choice-title">برنامه '+p.label+'</span>'+
+            '<span class="price-off">'+fmtNum(p.off)+'٪ تخفیف</span>'+
+          '</div>'+
+          '<div style="display:flex;gap:10px;align-items:baseline">'+
+            '<span class="price-old">'+fmtToman(p.base)+'</span>'+
+            '<strong style="color:var(--gold-light)">'+fmtToman(p.final)+'</strong>'+
+          '</div></label>';
+      }).join('');
+    }else if(svc==='consult'){
+      var m=state.consultMethod||'plus';
+      if(m==='standard'){
+        state.packageKey='single';
+        var sBase=PRICING.consult.standard.base+(opp?PRICING.consultOppositeExtra:0);
+        html='<label class="choice-card is-selected" data-pkg-key="single">'+
+          '<input type="radio" name="packageKey" value="single" checked>'+
+          '<span class="choice-title">جلسه تکی Standard (متنی — ۷۵ دقیقه)</span>'+
+          '<strong style="color:var(--gold-light)">'+fmtToman(sBase)+'</strong></label>';
+      }else{
+        var singleP=PRICING.consult[m].base+(opp?PRICING.consultOppositeExtra:0);
+        var items=[{k:'single',title:'جلسه تکی '+PRICING.consult[m].label,sub:'۱ جلسه ۷۵ دقیقه‌ای',val:singleP}];
+        Object.keys(PRICING.bundles[m]).forEach(function(pk){
+          var b=PRICING.bundles[m][pk];
+          items.push({k:pk,title:'بسته '+b.label,sub:fmtNum(b.sessions)+' جلسه ۷۵ دقیقه‌ای',val:opp?b.priceOpp:b.price});
+        });
+        if(state.packageKey!=='single'&&!PRICING.bundles[m][state.packageKey])state.packageKey='1m';
+        html=items.map(function(it){
+          var sel=state.packageKey===it.k;
+          return '<label class="choice-card'+(sel?' is-selected':'')+'" data-pkg-key="'+it.k+'">'+
+            '<input type="radio" name="packageKey" value="'+it.k+'"'+(sel?' checked':'')+'>'+
+            '<div style="display:flex;justify-content:space-between;align-items:center">'+
+              '<span class="choice-title">'+it.title+'</span>'+
+              '<strong style="color:var(--gold-light)">'+fmtToman(it.val)+'</strong>'+
+            '</div>'+
+            '<span class="choice-sub">'+it.sub+'</span></label>';
+        }).join('');
+      }
+    }else if(svc==='combo'){
+      var cm=(state.consultMethod==='premium')?'premium':'plus';
+      if(!PRICING.bundles[cm][state.packageKey])state.packageKey='1m';
+      html=['1m','3m','6m','1y'].map(function(pk){
+        var c=getComboPrice(cm,pk,opp);
+        var sel=state.packageKey===pk;
+        return '<label class="choice-card'+(sel?' is-selected':'')+'" data-pkg-key="'+pk+'">'+
+          '<input type="radio" name="packageKey" value="'+pk+'"'+(sel?' checked':'')+'>'+
+          '<div style="display:flex;justify-content:space-between;align-items:center">'+
+            '<span class="choice-title">پکیج ترکیبی '+c.label+'</span>'+
+            '<strong style="color:var(--gold-light)">'+fmtToman(c.final)+'</strong>'+
+          '</div>'+
+          '<span class="choice-sub">'+fmtNum(c.sessions)+' جلسه '+cm.toUpperCase()+' + برنامه اختصاصی (با ۵۰٪ تخفیف برنامه)</span></label>';
+      }).join('');
+    }
+    host.innerHTML=html;
+  }
+
+  function renderPreinvoice(){
+    var host=document.getElementById('preinvoice-rows');
+    if(!host)return;
+    var s=computeSummary();
+    var rows=[
+      ['نوع خدمت',s.serviceLabel],
+      ['روش مشاوره',s.methodLabel],
+      ['مدت دوره',s.periodLabel],
+      ['تعداد جلسات / ساختار',s.sessionsText],
+      ['ویژگی‌های انتخابی',s.features.join(' · ')||'—'],
+      ['جنسیت مشاور انتخابی',s.counselorGender],
+      ['قیمت پایه',fmtToman(s.basePrice)],
+      ['تخفیف',s.discountText],
+      ['مبلغ اضافه‌هزینه (جنسیت مخالف)',s.extraCost>0?fmtToman(s.extraCost):'ندارد'],
+      ['مبلغ نهایی',fmtToman(s.finalPrice)]
+    ];
+    host.innerHTML=rows.map(function(r,idx){
+      return '<div class="invoice-row"><span>'+r[0]+'</span><span'+(idx===rows.length-1?' class="invoice-total"':'')+'>'+r[1]+'</span></div>';
+    }).join('');
+  }
+
+  function renderJalaliCalendar(){
+    var host=document.getElementById('jalali-picker');
+    if(!host)return;
+    var jy=state.calYear,jm=state.calMonth;
+    var now=new Date(),todayJ=toJalaali(now.getFullYear(),now.getMonth()+1,now.getDate());
+    var firstG=jalaliToGregorian(jy,jm,1);
+    var startOffset=(firstG.getDay()+1)%7; /* Saturday=0 */
+    var daysInMonth=jalaliMonthLen(jy,jm);
+
+    var html='<div class="jcal-head">'+
+      '<button type="button" class="jcal-nav" id="jcal-prev" aria-label="ماه قبل">‹</button>'+
+      '<span class="jcal-title">'+J_MONTHS[jm-1]+' '+fmtNum(jy)+'</span>'+
+      '<button type="button" class="jcal-nav" id="jcal-next" aria-label="ماه بعد">›</button>'+
+      '</div><div class="jcal-grid">';
+    J_WEEKDAYS.forEach(function(w){html+='<div class="jcal-wd">'+w+'</div>';});
+    for(var i=0;i<startOffset;i++)html+='<div></div>';
+    for(var d=1;d<=daysInMonth;d++){
+      var dateStr=jy+'/'+pad2(jm)+'/'+pad2(d);
+      var isToday=(jy===todayJ.jy&&jm===todayJ.jm&&d===todayJ.jd);
+      var isSel=(state.shamsiDate===dateStr);
+      var isPast=(jy<todayJ.jy)||(jy===todayJ.jy&&jm<todayJ.jm)||(jy===todayJ.jy&&jm===todayJ.jm&&d<todayJ.jd);
+      html+='<button type="button" class="jcal-day'+(isToday?' is-today':'')+(isSel?' is-selected':'')+'" data-jdate="'+dateStr+'"'+(isPast?' disabled':'')+'>'+fmtNum(d)+'</button>';
+    }
+    html+='</div>';
+    host.innerHTML=html;
+  }
+
+  function buildInvoiceText(){
+    var s=computeSummary();
+    var gradeMajor=[state.grade,state.major].filter(Boolean).join(' — ')||'—';
+    var topicsText=(state.topics&&state.topics.length)?state.topics.join('، '):(state.otherDetails||'—');
+    var proposedTime=[state.shamsiDate,state.suggestHour?'ساعت '+state.suggestHour:'',state.altDays?'جایگزین: '+state.altDays:''].filter(Boolean).join(' | ');
+    var notesAll=[state.notes,state.otherDetails,state.scheduleNotes].filter(Boolean).join(' — ')||'—';
+    var extraInfo=[];
+    if(state.isIntroFree)extraInfo.push('درخواست جلسه اول رایگان ۴۵ دقیقه‌ای');
+    if(state.freeFirstWeek)extraInfo.push('هفته اول برنامه‌ریزی رایگان');
+    if(state.useTherapist)extraInfo.push('همراهی تراپیست تحصیلی (روان‌شناس بالینی و تحصیلی)');
+    if(s.extraCost>0)extraInfo.push('اضافه‌هزینه انتخاب جنسیت مخالف لحاظ شده است');
+
+    return [
+      'RAHNEXT REQUEST',
+      '==============================',
+      'کد خلاصه درخواست: '+state.code,
+      'نام و نام خانوادگی: '+(state.fullName||'—'),
+      'سن / تاریخ تولد: '+(state.ageOrDob||'—'),
+      'جنسیت: '+(state.userGender||'—'),
+      'شماره تماس: '+(state.phone||'—'),
+      'روش ارتباطی ترجیحی: '+(state.preferredMessenger||'تلگرام'),
+      'مقطع تحصیلی: '+(state.level||'—'),
+      'پایه و رشته: '+gradeMajor,
+      'هدف اصلی: '+(state.mainGoal||'—'),
+      'موضوع مشاوره: '+topicsText,
+      'نوع خدمت: '+s.serviceLabel,
+      'روش مشاوره: '+s.methodLabel,
+      'جنسیت مشاور: '+s.counselorGender,
+      'نوع بسته: '+s.serviceLabel,
+      'مدت دوره: '+s.periodLabel,
+      'تعداد جلسات: '+s.sessionsText,
+      'مزایای انتخاب‌شده: '+(extraInfo.length?extraInfo.join(' | '):s.features.join(' | ')),
+      'تخفیف: '+s.discountText,
+      'مبلغ نهایی: '+fmtToman(s.finalPrice),
+      'زمان پیشنهادی (تاریخ شمسی): '+(proposedTime||'—'),
+      'توضیحات تکمیلی: '+notesAll,
+      '==============================',
+      state.code
+    ].join('\n');
+  }
+
+  /* Hydrate & Gather Form Inputs */
+  function hydrateForm(){
+    var setVal=function(id,val){var el=document.getElementById(id);if(el)el.value=val||'';};
+    setVal('f-fullName',state.fullName);
+    setVal('f-ageOrDob',state.ageOrDob);
+    setVal('f-userGender',state.userGender);
+    setVal('f-phone',state.phone);
+    setVal('f-level',state.level);
+    setVal('f-grade',state.grade);
+    setVal('f-major',state.major);
+    setVal('f-status',state.status);
+    setVal('f-challenges',state.challenges);
+    setVal('f-otherDetails',state.otherDetails);
+    setVal('f-mainGoal',state.mainGoal);
+    setVal('f-startTime',state.startTime);
+    setVal('f-prefDays',state.prefDays);
+    setVal('f-prefHour',state.prefHour);
+    setVal('f-messengerConfirm',state.preferredMessenger||'تلگرام');
+    setVal('f-counselorGender',state.counselorGender||'بدون ترجیح');
+    setVal('f-notes',state.notes);
+    setVal('f-shamsiDate',state.shamsiDate);
+    setVal('f-suggestHour',state.suggestHour);
+    setVal('f-altDays',state.altDays);
+    setVal('f-scheduleNotes',state.scheduleNotes);
+
+    var chk=function(id,val){var el=document.getElementById(id);if(el)el.checked=!!val;};
+    chk('f-isIntroFree',state.isIntroFree);
+    chk('f-useTherapist',state.useTherapist);
+    chk('f-freeFirstWeek',state.freeFirstWeek);
+    chk('f-consent',state.consent);
+    chk('overview-therapist-toggle',state.useTherapist);
+
+    document.querySelectorAll('#service-choices .choice-card').forEach(function(c){
+      var act=c.getAttribute('data-value')===state.serviceType;
+      c.classList.toggle('is-selected',act);
+      var r=c.querySelector('input');if(r)r.checked=act;
+    });
+    document.querySelectorAll('#messenger-choices .choice-card').forEach(function(c){
+      var act=c.getAttribute('data-value')===state.preferredMessenger;
+      c.classList.toggle('is-selected',act);
+      var r=c.querySelector('input');if(r)r.checked=act;
+    });
+
+    renderTopics();
+    syncConditionalBlocks();
+    renderPackagesStep();
+    renderPreinvoice();
+    renderJalaliCalendar();
+  }
+
+  function gatherInputs(){
+    var val=function(id){var el=document.getElementById(id);return el?el.value.trim():'';};
+    state.fullName=val('f-fullName');
+    state.ageOrDob=val('f-ageOrDob');
+    state.userGender=val('f-userGender');
+    state.phone=val('f-phone');
+    state.level=val('f-level');
+    state.grade=val('f-grade');
+    state.major=val('f-major');
+    state.status=val('f-status');
+    state.challenges=val('f-challenges');
+    state.otherDetails=val('f-otherDetails');
+    state.mainGoal=val('f-mainGoal');
+    state.startTime=val('f-startTime');
+    state.prefDays=val('f-prefDays');
+    state.prefHour=val('f-prefHour');
+    var mc=val('f-messengerConfirm');if(mc)state.preferredMessenger=mc;
+    var cm=val('f-consultMethod');if(cm)state.consultMethod=cm;
+    var cg=val('f-counselorGender');if(cg)state.counselorGender=cg;
+    state.notes=val('f-notes');
+    state.shamsiDate=val('f-shamsiDate');
+    state.suggestHour=val('f-suggestHour');
+    state.altDays=val('f-altDays');
+    state.scheduleNotes=val('f-scheduleNotes');
+    state.isIntroFree=!!document.getElementById('f-isIntroFree').checked;
+    state.useTherapist=!!document.getElementById('f-useTherapist').checked;
+    state.freeFirstWeek=!!document.getElementById('f-freeFirstWeek').checked;
+    state.consent=!!document.getElementById('f-consent').checked;
+    saveState();
+  }
+
+  function clearErrors(){
+    document.querySelectorAll('.has-error').forEach(function(e){e.classList.remove('has-error');});
+    var errS=document.getElementById('err-serviceType');if(errS)errS.style.display='none';
+  }
+  function setErr(id){var el=document.getElementById(id);if(el)el.classList.add('has-error');}
+
+  function validateStep(step){
+    clearErrors();
+    gatherInputs();
+    if(step===1){
+      if(!state.serviceType){
+        var errS=document.getElementById('err-serviceType');if(errS)errS.style.display='block';
+        toast('لطفاً ابتدا نوع خدمت موردنظر را انتخاب کنید.');
+        return false;
+      }
+      return true;
+    }
+    if(step===2){
+      var ok=true;
+      if(state.fullName.length<2){setErr('wrap-fullName');ok=false;}
+      if(!state.ageOrDob){setErr('wrap-ageOrDob');ok=false;}
+      if(!state.userGender){setErr('wrap-userGender');ok=false;}
+      var digits=state.phone.replace(/\D/g,'');
+      if(digits.length<10){setErr('wrap-phone');ok=false;}
+      if(!state.preferredMessenger){setErr('wrap-messenger');ok=false;}
+      if(!ok)toast('لطفاً فیلدهای مشخص‌شده را کامل کنید.');
+      return ok;
+    }
+    if(step===3){
+      if(!state.level){setErr('wrap-level');toast('لطفاً مقطع تحصیلی خود را انتخاب کنید.');return false;}
+      return true;
+    }
+    if(step===4){
+      if(!state.mainGoal){setErr('wrap-mainGoal');toast('لطفاً هدف اصلی خود را وارد کنید.');return false;}
+      return true;
+    }
+    return true;
+  }
+
+  function showStep(n){
+    state.step=Math.max(1,Math.min(6,n));
+    saveState();
+    document.querySelectorAll('.form-step').forEach(function(el){
+      el.classList.toggle('hidden',Number(el.getAttribute('data-step'))!==state.step);
+    });
+    renderStepper();
+    hydrateForm();
+
+    var prevBtn=document.getElementById('btn-prev-step');
+    var nextBtn=document.getElementById('btn-next-step');
+    if(prevBtn)prevBtn.style.visibility=(state.step===1)?'hidden':'visible';
+    if(nextBtn){
+      nextBtn.classList.toggle('hidden',state.step===6);
+      nextBtn.textContent=(state.step===5)?'تولید فاکتور نهایی':'مرحله بعد';
+    }
+    if(state.step===6){
+      var inv=document.getElementById('f-invoiceText');
+      if(inv)inv.value=buildInvoiceText();
+      switchHandoffTab(state.preferredMessenger==='روبیکا'?'rubika':'telegram');
+    }
+  }
+
+  function switchHandoffTab(which){
+    document.querySelectorAll('[data-handoff-tab]').forEach(function(b){
+      b.classList.toggle('is-active',b.getAttribute('data-handoff-tab')===which);
+    });
+    document.getElementById('handoff-telegram').classList.toggle('hidden',which!=='telegram');
+    document.getElementById('handoff-rubika').classList.toggle('hidden',which!=='rubika');
+  }
+
+  function copyText(text,onDone){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){if(onDone)onDone();},function(){fallbackCopy(text,onDone);});
+    }else{
+      fallbackCopy(text,onDone);
+    }
+  }
+  function fallbackCopy(text,onDone){
+    var ta=document.createElement('textarea');
+    ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.focus();ta.select();
+    try{document.execCommand('copy');if(onDone)onDone();}catch(e){}
+    document.body.removeChild(ta);
+  }
+  function downloadTxt(filename,text){
+    var blob=new Blob([text],{type:'text/plain;charset=utf-8'});
+    var url=URL.createObjectURL(blob);
+    var a=document.createElement('a');
+    a.href=url;a.download=filename;
+    document.body.appendChild(a);a.click();
+    setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(url);},150);
+  }
+
+  function askInlineConfirm(msg,cb){
+    var box=document.getElementById('inline-confirm');
+    var msgEl=document.getElementById('inline-confirm-msg');
+    if(!box||!msgEl)return;
+    msgEl.textContent=msg;
+    confirmCallback=cb;
+    box.classList.add('is-open');
+  }
+  function closeInlineConfirm(){
+    var box=document.getElementById('inline-confirm');
+    if(box)box.classList.remove('is-open');
+    confirmCallback=null;
+  }
+
+  /* Bind All Events */
+  function bindEvents(){
+    document.addEventListener('click',function(e){
+      var routeEl=e.target.closest('[data-route]');
+      if(routeEl){
+        e.preventDefault();
+        openRoute(routeEl.getAttribute('data-route'),routeEl.getAttribute('data-sec'));
+        return;
+      }
+
+      var pickSvc=e.target.closest('[data-pick-service]');
+      if(pickSvc){
+        state.serviceType=pickSvc.getAttribute('data-pick-service');
+        state.step=2;
+        saveState();
+        openRoute('form');
+        toast('خدمت انتخاب شد؛ اطلاعات خود را تکمیل کنید.');
+        return;
+      }
+
+      var qTab=e.target.closest('[data-pricing-tab]');
+      if(qTab){
+        var tab=qTab.getAttribute('data-pricing-tab');
+        document.querySelectorAll('[data-pricing-tab]').forEach(function(b){
+          var act=b===qTab;
+          b.classList.toggle('is-active',act);
+          b.setAttribute('aria-selected',act?'true':'false');
+        });
+        renderPricingShowcase(tab);
+        return;
+      }
+
+      var qc=e.target.closest('[data-quick-consult]');
+      if(qc){
+        state.serviceType='consult';
+        state.consultMethod=qc.getAttribute('data-quick-consult');
+        state.packageKey=qc.getAttribute('data-quick-pkg');
+        state.step=2;saveState();openRoute('form');
+        toast('بسته مشاوره انتخاب شد.');
+        return;
+      }
+      var qp=e.target.closest('[data-quick-plan]');
+      if(qp){
+        state.serviceType='plan';
+        state.packageKey=qp.getAttribute('data-quick-plan');
+        state.step=2;saveState();openRoute('form');
+        toast('بسته برنامه‌ریزی انتخاب شد.');
+        return;
+      }
+      var qcb=e.target.closest('[data-quick-combo]');
+      if(qcb){
+        state.serviceType='combo';
+        state.consultMethod=qcb.getAttribute('data-quick-combo');
+        state.packageKey=qcb.getAttribute('data-quick-pkg');
+        state.step=2;saveState();openRoute('form');
+        toast('پکیج ترکیبی انتخاب شد.');
+        return;
+      }
+
+      var faqBtn=e.target.closest('.faq-q');
+      if(faqBtn){
+        var item=faqBtn.parentElement;
+        var open=item.classList.toggle('is-open');
+        faqBtn.setAttribute('aria-expanded',open?'true':'false');
+        return;
+      }
+
+      var jump=e.target.closest('[data-jump-step]');
+      if(jump){
+        var targetStep=Number(jump.getAttribute('data-jump-step'));
+        if(targetStep<state.step||validateStep(state.step))showStep(targetStep);
+        return;
+      }
+
+      var jDay=e.target.closest('[data-jdate]');
+      if(jDay){
+        state.shamsiDate=jDay.getAttribute('data-jdate');
+        document.getElementById('f-shamsiDate').value=state.shamsiDate;
+        saveState();renderJalaliCalendar();
+        return;
+      }
+      if(e.target.id==='jcal-prev'){
+        state.calMonth--;if(state.calMonth<1){state.calMonth=12;state.calYear--;}
+        renderJalaliCalendar();return;
+      }
+      if(e.target.id==='jcal-next'){
+        state.calMonth++;if(state.calMonth>12){state.calMonth=1;state.calYear++;}
+        renderJalaliCalendar();return;
+      }
+
+      var hTab=e.target.closest('[data-handoff-tab]');
+      if(hTab){switchHandoffTab(hTab.getAttribute('data-handoff-tab'));return;}
+
+      var copyIdBtn=e.target.closest('[data-copy-id]');
+      if(copyIdBtn){
+        var idTxt=copyIdBtn.getAttribute('data-copy-id');
+        copyText(idTxt,function(){toast('آیدی پشتیبانی '+idTxt+' کپی شد.');});
+        return;
+      }
+    });
+
+    /* Form live changes */
+    document.getElementById('service-choices').addEventListener('click',function(e){
+      var c=e.target.closest('.choice-card');if(!c)return;
+      state.serviceType=c.getAttribute('data-value');
+      if(state.serviceType==='plan'&&!PRICING.plan[state.packageKey])state.packageKey='monthly';
+      if(state.serviceType==='combo'&&(!PRICING.bundles.plus[state.packageKey]))state.packageKey='1m';
+      saveState();hydrateForm();
+    });
+
+    document.getElementById('messenger-choices').addEventListener('click',function(e){
+      var c=e.target.closest('.choice-card');if(!c)return;
+      state.preferredMessenger=c.getAttribute('data-value');
+      document.getElementById('f-messengerConfirm').value=state.preferredMessenger;
+      saveState();hydrateForm();
+    });
+
+    document.getElementById('package-options-list').addEventListener('click',function(e){
+      var c=e.target.closest('[data-pkg-key]');if(!c)return;
+      state.packageKey=c.getAttribute('data-pkg-key');
+      saveState();renderPackagesStep();renderPreinvoice();
+    });
+
+    document.getElementById('topics-container').addEventListener('change',function(e){
+      if(e.target.type!=='checkbox')return;
+      var val=e.target.value,idx=state.topics.indexOf(val);
+      if(e.target.checked&&idx===-1)state.topics.push(val);
+      else if(!e.target.checked&&idx!==-1)state.topics.splice(idx,1);
+      e.target.parentElement.classList.toggle('is-selected',e.target.checked);
+      saveState();
+    });
+
+    ['f-level','f-userGender','f-consultMethod','f-counselorGender','f-messengerConfirm'].forEach(function(id){
+      var el=document.getElementById(id);
+      if(el)el.addEventListener('change',function(){
+        gatherInputs();
+        if(id==='f-level')renderTopics();
+        if(id==='f-messengerConfirm'){
+          document.querySelectorAll('#messenger-choices .choice-card').forEach(function(c){
+            c.classList.toggle('is-selected',c.getAttribute('data-value')===state.preferredMessenger);
+          });
+        }
+        syncConditionalBlocks();renderPackagesStep();renderPreinvoice();
+      });
+    });
+
+    ['f-isIntroFree','f-useTherapist','f-freeFirstWeek','f-consent'].forEach(function(id){
+      var el=document.getElementById(id);
+      if(el)el.addEventListener('change',function(){gatherInputs();renderPreinvoice();});
+    });
+
+    document.getElementById('overview-therapist-toggle').addEventListener('change',function(e){
+      state.useTherapist=e.target.checked;
+      if(state.useTherapist&&!state.serviceType)state.serviceType='combo';
+      saveState();
+      toast(state.useTherapist?'همراهی تراپیست تحصیلی به درخواست شما افزوده شد.':'همراهی تراپیست تحصیلی غیرفعال شد.');
+    });
+
+    document.getElementById('btn-free-form').addEventListener('click',function(){
+      state.serviceType='consult';state.isIntroFree=true;state.step=2;
+      saveState();openRoute('form');
+      toast('درخواست جلسه اول رایگان انتخاب شد.');
+    });
+
+    document.getElementById('form-shell').addEventListener('input',function(e){
+      if(e.target.id==='f-invoiceText')return;
+      gatherInputs();
+    });
+
+    document.getElementById('btn-next-step').addEventListener('click',function(){
+      if(validateStep(state.step))showStep(state.step+1);
+    });
+    document.getElementById('btn-prev-step').addEventListener('click',function(){
+      gatherInputs();showStep(state.step-1);
+    });
+    document.getElementById('btn-save-later').addEventListener('click',function(){
+      gatherInputs();toast('اطلاعات شما با موفقیت در مرورگر ذخیره شد.');
+    });
+    document.getElementById('btn-cancel-request').addEventListener('click',function(){
+      askInlineConfirm('آیا مطمئن هستید که می‌خواهید ثبت درخواست را لغو کرده و اطلاعات ذخیره‌شده را پاک کنید؟',function(){
+        try{localStorage.removeItem(STORAGE_KEY);}catch(e){}
+        state=defaultState();hydrateForm();openRoute('home');
+        toast('ثبت درخواست لغو و داده‌های مرورگر پاک شد.');
+      });
+    });
+    document.getElementById('btn-clear-storage-footer').addEventListener('click',function(){
+      try{localStorage.removeItem(STORAGE_KEY);}catch(e){}
+      state=defaultState();hydrateForm();
+      toast('تمامی اطلاعات ذخیره‌شده در مرورگر پاک شدند.');
+    });
+
+    document.getElementById('btn-copy-invoice').addEventListener('click',function(){
+      var txt=document.getElementById('f-invoiceText').value;
+      copyText(txt,function(){
+        toast('فاکتور با موفقیت کپی شد!');
+        document.getElementById('messenger-handoff').classList.remove('hidden');
+      });
+    });
+    document.getElementById('btn-download-invoice').addEventListener('click',function(){
+      var txt=document.getElementById('f-invoiceText').value;
+      downloadTxt('rahnext-request-'+state.code+'.txt',txt);
+      toast('فایل متنی فاکتور دانلود شد.');
+    });
+    document.getElementById('btn-choose-messenger').addEventListener('click',function(){
+      document.getElementById('messenger-handoff').classList.remove('hidden');
+      document.getElementById('messenger-handoff').scrollIntoView({behavior:'smooth',block:'nearest'});
+    });
+    document.getElementById('btn-edit-info').addEventListener('click',function(){showStep(2);});
+    document.getElementById('btn-new-request').addEventListener('click',function(){
+      askInlineConfirm('شروع درخواست جدید اطلاعات فعلی را پاک می‌کند. ادامه می‌دهید؟',function(){
+        try{localStorage.removeItem(STORAGE_KEY);}catch(e){}
+        state=defaultState();hydrateForm();showStep(1);
+        toast('فرم برای درخواست جدید آماده شد.');
+      });
+    });
+
+    document.getElementById('inline-confirm-yes').addEventListener('click',function(){
+      var cb=confirmCallback;closeInlineConfirm();if(cb)cb();
+    });
+    document.getElementById('inline-confirm-no').addEventListener('click',closeInlineConfirm);
+
+    /* Ensure informed consent notice when opening DM links */
+    ['link-tg-dm','link-rb-dm'].forEach(function(id){
+      var el=document.getElementById(id);
+      if(el)el.addEventListener('click',function(e){
+        if(!document.getElementById('f-consent').checked){
+          e.preventDefault();
+          toast('لطفاً ابتدا تیک تأیید بررسی آگاهانه فاکتور را فعال کنید.');
+          document.getElementById('chip-consent').scrollIntoView({behavior:'smooth',block:'center'});
+        }
+      });
+    });
+  }
+
+  function init(){
+    loadState();
+    renderPricingShowcase('consult');
+    renderFAQ();
+    hydrateForm();
+    bindEvents();
+  }
+  init();
+})();
+</script>
+</body>
+</html>

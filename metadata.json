@@ -1,0 +1,8 @@
+{
+  "name": "RAHNEXT | راهنکس",
+  "description": "مرجعی نوگرا در ارائه خدمات مشاوره تخصصی آنلاین، برنامه‌ریزی تحصیلی اختصاصی و همراهی مسیر تحصیل — همیشه یه راه دیگه‌ای هم هست!",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
